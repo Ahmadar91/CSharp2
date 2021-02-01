@@ -6,5 +6,10 @@ namespace Model.Models.MammalsModel
 	{
 		public Size Size { get; set; }
 		public string Breed { get; set; }
+
+		public override string GetName()
+		{
+			return base.GetName();
+		}
 	}
 }

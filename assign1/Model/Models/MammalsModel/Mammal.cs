@@ -7,5 +7,14 @@ namespace Model.Models.MammalsModel
 	{
 		public SkinType SkinType { get; set; }
 		public bool Water { get; set; }
+		public override string Predator()
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public virtual string GetName()
+		{
+			return "";
+		}
 	}
 }
