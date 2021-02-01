@@ -1,0 +1,6 @@
+C:\Users\ahmad\Desktop\CSharp2\assign1\Model\bin\Debug\Model.dll
+C:\Users\ahmad\Desktop\CSharp2\assign1\Model\bin\Debug\Model.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign1\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\ahmad\Desktop\CSharp2\assign1\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\ahmad\Desktop\CSharp2\assign1\Model\obj\Debug\Model.dll
+C:\Users\ahmad\Desktop\CSharp2\assign1\Model\obj\Debug\Model.pdb

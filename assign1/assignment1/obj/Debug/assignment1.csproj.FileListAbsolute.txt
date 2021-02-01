@@ -7,3 +7,7 @@ C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\obj\Debug\assignment1.csproj.
 C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\obj\Debug\assignment1.csproj.CoreCompileInputs.cache
 C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\obj\Debug\assignment1.exe
 C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\obj\Debug\assignment1.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\obj\Debug\assignment1.Form1.resources
+C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\bin\Debug\Model.dll
+C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\bin\Debug\Model.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\obj\Debug\assignment1.csproj.CopyComplete
