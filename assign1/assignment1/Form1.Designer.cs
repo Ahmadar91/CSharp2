@@ -35,7 +35,7 @@ namespace assignment1
 			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.ListAll = new System.Windows.Forms.CheckBox();
 			this.Age = new System.Windows.Forms.TextBox();
-			this.Name = new System.Windows.Forms.TextBox();
+			this.AnimalName = new System.Windows.Forms.TextBox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.Tail = new System.Windows.Forms.TextBox();
 			this.No = new System.Windows.Forms.TextBox();
@@ -55,7 +55,7 @@ namespace assignment1
 			this.groupBox1.Controls.Add(this.listBox1);
 			this.groupBox1.Controls.Add(this.ListAll);
 			this.groupBox1.Controls.Add(this.Age);
-			this.groupBox1.Controls.Add(this.Name);
+			this.groupBox1.Controls.Add(this.AnimalName);
 			this.groupBox1.Controls.Add(this.groupBox3);
 			this.groupBox1.Controls.Add(this.groupBox2);
 			this.groupBox1.Controls.Add(this.label2);
@@ -111,12 +111,12 @@ namespace assignment1
 			this.Age.Size = new System.Drawing.Size(100, 22);
 			this.Age.TabIndex = 5;
 			// 
-			// Name
+			// AnimalName
 			// 
-			this.Name.Location = new System.Drawing.Point(84, 60);
-			this.Name.Name = "Name";
-			this.Name.Size = new System.Drawing.Size(100, 22);
-			this.Name.TabIndex = 4;
+			this.AnimalName.Location = new System.Drawing.Point(84, 60);
+			this.AnimalName.Name = "AnimalName";
+			this.AnimalName.Size = new System.Drawing.Size(100, 22);
+			this.AnimalName.TabIndex = 4;
 			// 
 			// groupBox3
 			// 
@@ -197,7 +197,7 @@ namespace assignment1
 			this.ClientSize = new System.Drawing.Size(1256, 947);
 			this.Controls.Add(this.groupBox1);
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "AnimalManager";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox3.ResumeLayout(false);
@@ -214,7 +214,7 @@ namespace assignment1
 		private System.Windows.Forms.ListBox listBox1;
 		private System.Windows.Forms.CheckBox ListAll;
 		private System.Windows.Forms.TextBox Age;
-		private System.Windows.Forms.TextBox Name;
+		private System.Windows.Forms.TextBox AnimalName;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.TextBox Tail;
 		private System.Windows.Forms.TextBox No;

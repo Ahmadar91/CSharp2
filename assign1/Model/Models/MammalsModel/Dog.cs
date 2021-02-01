@@ -9,7 +9,8 @@ namespace Model.Models.MammalsModel
 
 		public override string GetName()
 		{
-			return base.GetName();
+			var x = "";
+			return x;
 		}
 	}
 }
