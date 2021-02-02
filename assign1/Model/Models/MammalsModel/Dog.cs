@@ -17,5 +17,10 @@ namespace Model.Models.MammalsModel
 			var x = "";
 			return base.GetName();
 		}
+
+		public override string ToString()
+		{
+			return base.ToString();
+		}
 	}
 }

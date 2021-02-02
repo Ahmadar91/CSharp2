@@ -9,8 +9,8 @@ namespace Model.Models.MammalsModel
 		public SkinType SkinType { get; set; }
 		public bool Water { get; set; }
 
-		public int numOfTeeth { get; set; }
-		public double tailLength { get; set; }
+		public int NumOfTeeth { get; set; }
+		public double TailLength { get; set; }
 		public Mammal()
 		{
 
@@ -18,8 +18,8 @@ namespace Model.Models.MammalsModel
 
 		public Mammal(int numOfTeeth, double tailLength)
 		{
-			this.numOfTeeth = numOfTeeth;
-			this.tailLength = tailLength;
+			NumOfTeeth = numOfTeeth;
+			TailLength = tailLength;
 		}
 		public virtual string GetName()
 		{
@@ -42,5 +42,9 @@ namespace Model.Models.MammalsModel
 			return mammal;
 		}
 
+		public override string ToString()
+		{
+			return base.ToString();
+		}
 	}
 }

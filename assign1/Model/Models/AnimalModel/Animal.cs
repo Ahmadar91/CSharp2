@@ -12,6 +12,9 @@ namespace Model.Models.AnimalModel
 
 
 		public abstract Animal Create<T>(Enum type, T value2, T value3) where T : struct, IConvertible;
-
+		public override string ToString()
+		{
+			return "base.ToString()";
+		}
 	}
 }
