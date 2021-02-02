@@ -1,4 +1,6 @@
-﻿namespace Model.Models.AnimalModel
+﻿using System;
+
+namespace Model.Models.AnimalModel
 {
 	public abstract class Animal
 	{
@@ -9,7 +11,7 @@
 		public bool IsPredator { get; set; }
 
 
-		public abstract string Predator();
+		public abstract Animal Create<T>(Enum type, T value2, T value3) where T : struct, IConvertible;
 
 	}
 }

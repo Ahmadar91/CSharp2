@@ -1,6 +1,6 @@
 ﻿namespace Model.Models.ReptilesModel
 {
-	public class Frog
+	public class Frog : Reptile
 	{
 
 	}
