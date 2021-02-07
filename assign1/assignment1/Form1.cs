@@ -285,6 +285,8 @@ namespace assignment1
 			{
 				speciesList.Items.AddRange(Enum.GetNames(typeof(MammalSpecies)));
 				speciesList.Items.AddRange(Enum.GetNames(typeof(ReptileSpecies)));
+
+
 			}
 
 
@@ -292,8 +294,10 @@ namespace assignment1
 
 		private void upload_Click(object sender, EventArgs e)
 		{
-			OpenFileDialog op = new OpenFileDialog();
-			op.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
+			OpenFileDialog op = new OpenFileDialog
+			{
+				Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif"
+			};
 			if (op.ShowDialog() == DialogResult.OK)
 			{
 				pictureBox1.Image = new Bitmap(op.FileName);

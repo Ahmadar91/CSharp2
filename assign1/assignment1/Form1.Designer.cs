@@ -317,7 +317,7 @@ namespace assignment1
 			this.groupBox5.Size = new System.Drawing.Size(331, 239);
 			this.groupBox5.TabIndex = 0;
 			this.groupBox5.TabStop = false;
-			this.groupBox5.Text = "groupBox5";
+			this.groupBox5.Text = "Animal Info";
 			// 
 			// animalInfo
 			// 
@@ -347,9 +347,9 @@ namespace assignment1
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Location = new System.Drawing.Point(801, 46);
+			this.pictureBox1.Location = new System.Drawing.Point(747, 32);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(286, 217);
+			this.pictureBox1.Size = new System.Drawing.Size(359, 220);
 			this.pictureBox1.TabIndex = 15;
 			this.pictureBox1.TabStop = false;
 			// 
