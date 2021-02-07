@@ -42,14 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AnimalModel\Animal.cs" />
+    <Compile Include="Models\AnimalModel\Category.cs" />
     <Compile Include="Models\AnimalModel\Gender.cs" />
+    <Compile Include="Models\MammalsModel\Cuteness.cs" />
     <Compile Include="Models\MammalsModel\Dog.cs" />
     <Compile Include="Models\MammalsModel\Mammal.cs" />
-    <Compile Include="Models\MammalsModel\MammalSpecies.cs" />
     <Compile Include="Models\MammalsModel\Cat.cs" />
+    <Compile Include="Models\MammalsModel\MammalSpecies.cs" />
     <Compile Include="Models\MammalsModel\Size.cs" />
     <Compile Include="Models\MammalsModel\SkinType.cs" />
     <Compile Include="Models\ReptilesModel\Frog.cs" />
+    <Compile Include="Models\ReptilesModel\PoisonLevel.cs" />
     <Compile Include="Models\ReptilesModel\Reptile.cs" />
     <Compile Include="Models\ReptilesModel\ReptileSpecies.cs" />
     <Compile Include="Models\ReptilesModel\Snake.cs" />

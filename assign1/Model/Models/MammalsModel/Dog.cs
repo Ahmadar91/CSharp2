@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using Model.Models.AnimalModel;
 
 namespace Model.Models.MammalsModel
 {
@@ -8,19 +9,21 @@ namespace Model.Models.MammalsModel
 		public Size Size { get; set; }
 		public string Breed { get; set; }
 
-		public Dog(int numOfTeeth, double tailLength) : base(numOfTeeth, tailLength)
+		public Dog(int numOfTeeth, double tailLength, Category category, SkinType skin) : base(numOfTeeth, tailLength, category, skin)
 		{
 			Breed = "Unknown";
 		}
-		public override string GetName()
+		public override string Action()
 		{
 			var x = "";
-			return base.GetName();
+			return base.Action();
 		}
 
 		public override string ToString()
 		{
-			return base.ToString();
+			var str = base.ToString();
+			str += $"Breed {Breed}";
+			return str;
 		}
 	}
 }
