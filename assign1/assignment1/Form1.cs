@@ -3,7 +3,6 @@ using Model.Models.AnimalModel;
 using Model.Models.MammalsModel;
 using Model.Models.ReptilesModel;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -195,7 +194,6 @@ namespace assignment1
 		private void categoryList_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			speciesList.Items.Clear();
-
 			switch ((Category)categoryList.SelectedIndex)
 			{
 				case Category.Mammal:
@@ -229,67 +227,68 @@ namespace assignment1
 		private void speciesList_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			cmbCuteness.Items.Clear();
-
-			if (Species == "Mammal")
+			var selectedIndex = speciesList.SelectedItem.ToString();
+			if (selectedIndex == MammalSpecies.Dog.ToString())
 			{
-				switch ((MammalSpecies)speciesList.SelectedIndex)
-				{
 
-					case MammalSpecies.Dog:
-						txtBreed.Text = "";
-						speciesSpec.Text = "Dog Specifications";
-						lblSpeciesSpec1.Text = "Breed";
-						cmbCuteness.Visible = false;
-						txtBreed.Visible = true;
-						break;
-					case MammalSpecies.Cat:
-						speciesSpec.Text = "Cat Specifications";
-						lblSpeciesSpec1.Text = "Cuteness";
-						cmbCuteness.Items.AddRange(Enum.GetNames(typeof(Cuteness)));
-						cmbCuteness.SelectedIndex = 2;
-						cmbCuteness.Visible = true;
-						txtBreed.Visible = false;
-						break;
-				}
-			}
-			else if (Species == "Reptile")
-			{
-				switch ((ReptileSpecies)speciesList.SelectedIndex)
-				{
-
-					case ReptileSpecies.Frog:
-						txtBreed.Text = "";
-						speciesSpec.Text = "Frog Specifications";
-						lblSpeciesSpec1.Text = "Color";
-						cmbCuteness.Visible = false;
-						txtBreed.Visible = true;
-						break;
-					case ReptileSpecies.Snake:
-						speciesSpec.Text = "Snake Specifications";
-						lblSpeciesSpec1.Text = "PoisonLevel";
-						cmbCuteness.Items.AddRange(Enum.GetNames(typeof(PoisonLevel)));
-						cmbCuteness.SelectedIndex = 2;
-						cmbCuteness.Visible = true;
-						txtBreed.Visible = false;
-						break;
-				}
+				txtBreed.Text = "";
+				speciesSpec.Text = "Dog Specifications";
+				lblSpeciesSpec1.Text = "Breed";
+				cmbCuteness.Visible = false;
+				txtBreed.Visible = true;
 			}
 
+			if (selectedIndex == MammalSpecies.Cat.ToString())
+			{
+
+				speciesSpec.Text = "Cat Specifications";
+				lblSpeciesSpec1.Text = "Cuteness";
+				cmbCuteness.Items.AddRange(Enum.GetNames(typeof(Cuteness)));
+				cmbCuteness.SelectedIndex = 2;
+				cmbCuteness.Visible = true;
+				txtBreed.Visible = false;
+
+			}
+
+			if (selectedIndex == ReptileSpecies.Frog.ToString())
+			{
+
+				txtBreed.Text = "";
+				speciesSpec.Text = "Frog Specifications";
+				lblSpeciesSpec1.Text = "Color";
+				cmbCuteness.Visible = false;
+				txtBreed.Visible = true;
+			}
+
+			if (selectedIndex == ReptileSpecies.Snake.ToString())
+			{
+				speciesSpec.Text = "Snake Specifications";
+				lblSpeciesSpec1.Text = "PoisonLevel";
+				cmbCuteness.Items.AddRange(Enum.GetNames(typeof(PoisonLevel)));
+				cmbCuteness.SelectedIndex = 2;
+				cmbCuteness.Visible = true;
+				txtBreed.Visible = false;
+			}
 		}
 
 		private void ListAll_CheckedChanged(object sender, EventArgs e)
 		{
-			speciesList.Items.Clear();
 			categoryList.Enabled = !categoryList.Enabled;
+			speciesList.Items.Clear();
 			if (!categoryList.Enabled)
 			{
 				speciesList.Items.AddRange(Enum.GetNames(typeof(MammalSpecies)));
 				speciesList.Items.AddRange(Enum.GetNames(typeof(ReptileSpecies)));
-
-
+				return;
 			}
-
-
+			if ((Category)categoryList.SelectedIndex == Category.Mammal)
+			{
+				speciesList.Items.AddRange(Enum.GetNames(typeof(MammalSpecies)));
+			}
+			if ((Category)categoryList.SelectedIndex == Category.Reptile)
+			{
+				speciesList.Items.AddRange(Enum.GetNames(typeof(ReptileSpecies)));
+			}
 		}
 
 		private void upload_Click(object sender, EventArgs e)
