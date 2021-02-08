@@ -11,5 +11,3 @@ C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\obj\Debug\View.csproj.CoreCom
 C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\obj\Debug\View.csproj.CopyComplete
 C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\obj\Debug\assignment1.exe
 C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\obj\Debug\assignment1.pdb
-C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\bin\Debug\Controller.dll
-C:\Users\ahmad\Desktop\CSharp2\assign1\assignment1\bin\Debug\Controller.pdb

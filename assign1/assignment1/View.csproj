@@ -80,10 +80,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controller\Controller.csproj">
-      <Project>{f40d3f17-b9ba-4ee4-a1ba-cbda907084cf}</Project>
-      <Name>Controller</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{742c0e33-f6cd-4fab-8eb5-f7967a89d5f2}</Project>
       <Name>Model</Name>

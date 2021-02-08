@@ -30,6 +30,8 @@ namespace assignment1
 		private void InitializeComponent()
 		{
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.upload = new System.Windows.Forms.Button();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.speciesSpec = new System.Windows.Forms.GroupBox();
@@ -45,6 +47,8 @@ namespace assignment1
 			this.Age = new System.Windows.Forms.TextBox();
 			this.AnimalName = new System.Windows.Forms.TextBox();
 			this.specifications = new System.Windows.Forms.GroupBox();
+			this.cmbSpec3 = new System.Windows.Forms.ComboBox();
+			this.label3Spec = new System.Windows.Forms.Label();
 			this.cmbBool = new System.Windows.Forms.ComboBox();
 			this.txtSpec2 = new System.Windows.Forms.TextBox();
 			this.txtSpec1 = new System.Windows.Forms.TextBox();
@@ -53,19 +57,13 @@ namespace assignment1
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.listView1 = new System.Windows.Forms.ListView();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.animalInfo = new System.Windows.Forms.Label();
-			this.label3Spec = new System.Windows.Forms.Label();
-			this.cmbSpec3 = new System.Windows.Forms.ComboBox();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.upload = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.speciesSpec.SuspendLayout();
 			this.specifications.SuspendLayout();
-			this.groupBox4.SuspendLayout();
 			this.groupBox5.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox1
@@ -92,6 +90,24 @@ namespace assignment1
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Animal Specifications";
+			// 
+			// upload
+			// 
+			this.upload.Location = new System.Drawing.Point(856, 341);
+			this.upload.Name = "upload";
+			this.upload.Size = new System.Drawing.Size(145, 38);
+			this.upload.TabIndex = 16;
+			this.upload.Text = "Upload a picture";
+			this.upload.UseVisualStyleBackColor = true;
+			this.upload.Click += new System.EventHandler(this.upload_Click);
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Location = new System.Drawing.Point(747, 32);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(359, 220);
+			this.pictureBox1.TabIndex = 15;
+			this.pictureBox1.TabStop = false;
 			// 
 			// label8
 			// 
@@ -232,6 +248,23 @@ namespace assignment1
 			this.specifications.TabIndex = 3;
 			this.specifications.TabStop = false;
 			// 
+			// cmbSpec3
+			// 
+			this.cmbSpec3.FormattingEnabled = true;
+			this.cmbSpec3.Location = new System.Drawing.Point(150, 117);
+			this.cmbSpec3.Name = "cmbSpec3";
+			this.cmbSpec3.Size = new System.Drawing.Size(121, 24);
+			this.cmbSpec3.TabIndex = 9;
+			// 
+			// label3Spec
+			// 
+			this.label3Spec.AutoSize = true;
+			this.label3Spec.Location = new System.Drawing.Point(19, 126);
+			this.label3Spec.Name = "label3Spec";
+			this.label3Spec.Size = new System.Drawing.Size(46, 17);
+			this.label3Spec.TabIndex = 8;
+			this.label3Spec.Text = "spec3";
+			// 
 			// cmbBool
 			// 
 			this.cmbBool.FormattingEnabled = true;
@@ -292,22 +325,12 @@ namespace assignment1
 			// 
 			// groupBox4
 			// 
-			this.groupBox4.Controls.Add(this.listView1);
 			this.groupBox4.Location = new System.Drawing.Point(12, 501);
 			this.groupBox4.Name = "groupBox4";
 			this.groupBox4.Size = new System.Drawing.Size(1242, 314);
 			this.groupBox4.TabIndex = 1;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "List of registred animals";
-			// 
-			// listView1
-			// 
-			this.listView1.HideSelection = false;
-			this.listView1.Location = new System.Drawing.Point(352, 49);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(861, 239);
-			this.listView1.TabIndex = 0;
-			this.listView1.UseCompatibleStateImageBehavior = false;
 			// 
 			// groupBox5
 			// 
@@ -328,41 +351,6 @@ namespace assignment1
 			this.animalInfo.TabIndex = 0;
 			this.animalInfo.Text = "info";
 			// 
-			// label3Spec
-			// 
-			this.label3Spec.AutoSize = true;
-			this.label3Spec.Location = new System.Drawing.Point(19, 126);
-			this.label3Spec.Name = "label3Spec";
-			this.label3Spec.Size = new System.Drawing.Size(46, 17);
-			this.label3Spec.TabIndex = 8;
-			this.label3Spec.Text = "spec3";
-			// 
-			// cmbSpec3
-			// 
-			this.cmbSpec3.FormattingEnabled = true;
-			this.cmbSpec3.Location = new System.Drawing.Point(150, 117);
-			this.cmbSpec3.Name = "cmbSpec3";
-			this.cmbSpec3.Size = new System.Drawing.Size(121, 24);
-			this.cmbSpec3.TabIndex = 9;
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Location = new System.Drawing.Point(747, 32);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(359, 220);
-			this.pictureBox1.TabIndex = 15;
-			this.pictureBox1.TabStop = false;
-			// 
-			// upload
-			// 
-			this.upload.Location = new System.Drawing.Point(856, 341);
-			this.upload.Name = "upload";
-			this.upload.Size = new System.Drawing.Size(145, 38);
-			this.upload.TabIndex = 16;
-			this.upload.Text = "Upload a picture";
-			this.upload.UseVisualStyleBackColor = true;
-			this.upload.Click += new System.EventHandler(this.upload_Click);
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -375,14 +363,13 @@ namespace assignment1
 			this.Text = "AnimalManager";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.speciesSpec.ResumeLayout(false);
 			this.speciesSpec.PerformLayout();
 			this.specifications.ResumeLayout(false);
 			this.specifications.PerformLayout();
-			this.groupBox4.ResumeLayout(false);
 			this.groupBox5.ResumeLayout(false);
 			this.groupBox5.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -409,7 +396,6 @@ namespace assignment1
 		private System.Windows.Forms.ComboBox cmbGender;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.GroupBox groupBox4;
-		private System.Windows.Forms.ListView listView1;
 		private System.Windows.Forms.GroupBox groupBox5;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label7;

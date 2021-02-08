@@ -1,4 +1,4 @@
-﻿using Controller;
+﻿
 using Model.Models.AnimalModel;
 using Model.Models.MammalsModel;
 using Model.Models.ReptilesModel;
@@ -10,16 +10,21 @@ namespace assignment1
 {
 	public partial class Form1 : Form
 	{
-		private AnimalManager _animalManager;
+		/// <summary>The animal manager</summary>
+
+		/// <summary>Gets or sets the species.</summary>
+		/// <value>The species.</value>
 		public string Species { get; set; }
+		/// <summary>Initializes a new instance of the <see cref="Form1" /> class.</summary>
 		public Form1()
 		{
 			InitializeComponent();
-			_animalManager = new AnimalManager();
+
 			InitializeGUI();
 
 		}
 
+		/// <summary>Initializes the GUI.</summary>
 		private void InitializeGUI()
 		{
 			cmbGender.Items.AddRange(Enum.GetNames(typeof(Gender)));
@@ -39,6 +44,10 @@ namespace assignment1
 
 		}
 
+		/// <summary>Reads the category.</summary>
+		/// <returns>
+		///   Category of animals
+		/// </returns>
 		private Category ReadCategory()
 		{
 			Category category;
@@ -57,6 +66,9 @@ namespace assignment1
 			return category;
 		}
 
+		/// <summary>Handles the Click event of the AddButton control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void AddButton_Click(object sender, EventArgs e)
 		{
 			Animal animal = ReadInput();
@@ -67,6 +79,10 @@ namespace assignment1
 			animalInfo.Text = animal.ToString();
 		}
 
+		/// <summary>Reads the input.</summary>
+		/// <returns>
+		///   Animal
+		/// </returns>
 		private Animal ReadInput()
 		{
 			var category = ReadCategory();
@@ -92,6 +108,8 @@ namespace assignment1
 			return animal;
 		}
 
+		/// <summary>Reads the common values.</summary>
+		/// <param name="animal">The animal.</param>
 		private void ReadCommonValues(ref Animal animal)
 		{
 			animal.Name = AnimalName.Text;
@@ -103,6 +121,10 @@ namespace assignment1
 
 		}
 
+		/// <summary>Creates the reptile.</summary>
+		/// <returns>
+		///   Animal
+		/// </returns>
 		private Animal CreateReptile()
 		{
 			var canLiveOnLand = cmbBool.SelectedIndex == 1;
@@ -126,6 +148,10 @@ namespace assignment1
 			return animal;
 
 		}
+		/// <summary>Creates the mammal.</summary>
+		/// <returns>
+		///   Animal
+		/// </returns>
 		private Animal CreateMammal()
 		{
 			if (!int.TryParse(txtSpec1.Text, out var numOfTeeth))
@@ -154,6 +180,10 @@ namespace assignment1
 
 			return animal;
 		}
+		/// <summary>Reads the reptile species.</summary>
+		/// <returns>
+		///   ReptileSpecies
+		/// </returns>
 		private ReptileSpecies ReadReptileSpecies()
 		{
 			ReptileSpecies species;
@@ -173,6 +203,10 @@ namespace assignment1
 
 
 
+		/// <summary>Reads the mammal species.</summary>
+		/// <returns>
+		///  MammalSpecies
+		/// </returns>
 		private MammalSpecies ReadMammalSpecies()
 		{
 			MammalSpecies species;
@@ -191,6 +225,9 @@ namespace assignment1
 
 		}
 
+		/// <summary>Handles the SelectedIndexChanged event of the categoryList control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void categoryList_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			speciesList.Items.Clear();
@@ -224,6 +261,9 @@ namespace assignment1
 			}
 		}
 
+		/// <summary>Handles the SelectedIndexChanged event of the speciesList control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void speciesList_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			cmbCuteness.Items.Clear();
@@ -271,6 +311,9 @@ namespace assignment1
 			}
 		}
 
+		/// <summary>Handles the CheckedChanged event of the ListAll control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void ListAll_CheckedChanged(object sender, EventArgs e)
 		{
 			categoryList.Enabled = !categoryList.Enabled;
@@ -291,6 +334,9 @@ namespace assignment1
 			}
 		}
 
+		/// <summary>Handles the Click event of the upload control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void upload_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog op = new OpenFileDialog
