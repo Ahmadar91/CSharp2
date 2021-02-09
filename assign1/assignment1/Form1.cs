@@ -14,7 +14,8 @@ namespace assignment1
 
 		/// <summary>Gets or sets the species.</summary>
 		/// <value>The species.</value>
-		public string Species { get; set; }
+		private string Species { get; set; }
+		private Category _Category { get; set; }
 		/// <summary>Initializes a new instance of the <see cref="Form1" /> class.</summary>
 		public Form1()
 		{
@@ -40,7 +41,7 @@ namespace assignment1
 			cmbBool.Items.Add("false");
 			cmbBool.Items.Add("true");
 			cmbBool.SelectedIndex = 1;
-			label3Spec.Text = "";
+			label3Spec.Text = "Skin type";
 
 		}
 
@@ -85,9 +86,12 @@ namespace assignment1
 		/// </returns>
 		private Animal ReadInput()
 		{
-			var category = ReadCategory();
+
+			_Category = ListAll.Checked ? ReadSpecies() : ReadCategory();
+
+
 			Animal animal = null;
-			switch (category)
+			switch (_Category)
 			{
 				case Category.Mammal:
 					animal = CreateMammal();
@@ -136,14 +140,17 @@ namespace assignment1
 			}
 
 			ReptileSpecies species = ReadReptileSpecies();
-			Animal animal = new Reptile().Create(species, canLiveOnLand, weight, ReadCategory());
-			if (species == ReptileSpecies.Frog)
+			Animal animal = new Reptile().Create(species, canLiveOnLand, weight, _Category);
+			switch (species)
 			{
-				((Frog)animal).Color = txtBreed.Text;
-			}
-			else if (species == ReptileSpecies.Snake)
-			{
-				((Snake)animal).PoisonLevel = (PoisonLevel)cmbCuteness.SelectedIndex;
+				case (ReptileSpecies)0:
+				case (ReptileSpecies)2:
+					((Frog)animal).Color = txtBreed.Text;
+					break;
+				case (ReptileSpecies)1:
+				case (ReptileSpecies)3:
+					((Snake)animal).PoisonLevel = (PoisonLevel)cmbCuteness.SelectedIndex;
+					break;
 			}
 			return animal;
 
@@ -167,7 +174,7 @@ namespace assignment1
 
 			var skin = cmbSpec3.SelectedIndex;
 			MammalSpecies species = ReadMammalSpecies();
-			Animal animal = new Mammal().Create(species, numOfTeeth, tailLength, ReadCategory(), (SkinType)skin);
+			Animal animal = new Mammal().Create(species, numOfTeeth, tailLength, _Category, (SkinType)skin);
 			switch (species)
 			{
 				case MammalSpecies.Dog:
@@ -234,31 +241,41 @@ namespace assignment1
 			switch ((Category)categoryList.SelectedIndex)
 			{
 				case Category.Mammal:
-					cmbSpec3.Items.Clear();
-					specifications.Text = "Mammal Specifications";
-					lblspec1.Text = "No.Of teeth;";
-					lblSpec2.Text = "Legnth of tail:";
-					txtSpec1.Visible = true;
-					cmbBool.Visible = false;
-					Species = "Mammal";
-					label3Spec.Text = "Skin Type";
-					cmbSpec3.Visible = true;
-					cmbSpec3.Items.AddRange(Enum.GetNames(typeof(SkinType)));
-					cmbSpec3.SelectedIndex = 0;
 					speciesList.Items.AddRange(Enum.GetNames(typeof(MammalSpecies)));
+					speciesList.SelectedIndex = 0;
 					break;
 				case Category.Reptile:
-					specifications.Text = "Reptile Specifications";
-					lblspec1.Text = "Can live on land;";
-					lblSpec2.Text = "weight:";
 					speciesList.Items.AddRange(Enum.GetNames(typeof(ReptileSpecies)));
-					txtSpec1.Visible = false;
-					cmbBool.Visible = true;
-					cmbSpec3.Visible = false;
-					label3Spec.Text = "";
-					Species = "Reptile";
+					speciesList.SelectedIndex = 0;
 					break;
 			}
+		}
+
+		private void GetReptileProperties()
+		{
+			specifications.Text = "Reptile Specifications";
+			lblspec1.Text = "Can live on land;";
+			lblSpec2.Text = "weight:";
+			txtSpec1.Visible = false;
+			cmbBool.Visible = true;
+			cmbSpec3.Visible = false;
+			label3Spec.Text = "";
+			Species = "Reptile";
+		}
+
+		private void GetMammalProperties()
+		{
+			cmbSpec3.Items.Clear();
+			specifications.Text = "Mammal Specifications";
+			lblspec1.Text = "No.Of teeth;";
+			lblSpec2.Text = "Legnth of tail:";
+			txtSpec1.Visible = true;
+			cmbBool.Visible = false;
+			Species = "Mammal";
+			label3Spec.Text = "Skin Type";
+			cmbSpec3.Visible = true;
+			cmbSpec3.Items.AddRange(Enum.GetNames(typeof(SkinType)));
+			cmbSpec3.SelectedIndex = 0;
 		}
 
 		/// <summary>Handles the SelectedIndexChanged event of the speciesList control.</summary>
@@ -267,10 +284,11 @@ namespace assignment1
 		private void speciesList_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			cmbCuteness.Items.Clear();
+
 			var selectedIndex = speciesList.SelectedItem.ToString();
 			if (selectedIndex == MammalSpecies.Dog.ToString())
 			{
-
+				GetMammalProperties();
 				txtBreed.Text = "";
 				speciesSpec.Text = "Dog Specifications";
 				lblSpeciesSpec1.Text = "Breed";
@@ -280,7 +298,7 @@ namespace assignment1
 
 			if (selectedIndex == MammalSpecies.Cat.ToString())
 			{
-
+				GetMammalProperties();
 				speciesSpec.Text = "Cat Specifications";
 				lblSpeciesSpec1.Text = "Cuteness";
 				cmbCuteness.Items.AddRange(Enum.GetNames(typeof(Cuteness)));
@@ -292,7 +310,7 @@ namespace assignment1
 
 			if (selectedIndex == ReptileSpecies.Frog.ToString())
 			{
-
+				GetReptileProperties();
 				txtBreed.Text = "";
 				speciesSpec.Text = "Frog Specifications";
 				lblSpeciesSpec1.Text = "Color";
@@ -302,6 +320,7 @@ namespace assignment1
 
 			if (selectedIndex == ReptileSpecies.Snake.ToString())
 			{
+				GetReptileProperties();
 				speciesSpec.Text = "Snake Specifications";
 				lblSpeciesSpec1.Text = "PoisonLevel";
 				cmbCuteness.Items.AddRange(Enum.GetNames(typeof(PoisonLevel)));
@@ -309,6 +328,20 @@ namespace assignment1
 				cmbCuteness.Visible = true;
 				txtBreed.Visible = false;
 			}
+
+		}
+
+		private Category ReadSpecies()
+		{
+
+			var selectedIndex = speciesList.SelectedItem.ToString();
+			if (selectedIndex == MammalSpecies.Dog.ToString() || selectedIndex == MammalSpecies.Cat.ToString())
+			{
+				return Category.Mammal;
+			}
+
+			return Category.Reptile;
+
 		}
 
 		/// <summary>Handles the CheckedChanged event of the ListAll control.</summary>
@@ -322,15 +355,18 @@ namespace assignment1
 			{
 				speciesList.Items.AddRange(Enum.GetNames(typeof(MammalSpecies)));
 				speciesList.Items.AddRange(Enum.GetNames(typeof(ReptileSpecies)));
+				speciesList.SelectedIndex = 0;
 				return;
 			}
 			if ((Category)categoryList.SelectedIndex == Category.Mammal)
 			{
 				speciesList.Items.AddRange(Enum.GetNames(typeof(MammalSpecies)));
+				speciesList.SelectedIndex = 0;
 			}
 			if ((Category)categoryList.SelectedIndex == Category.Reptile)
 			{
 				speciesList.Items.AddRange(Enum.GetNames(typeof(ReptileSpecies)));
+				speciesList.SelectedIndex = 0;
 			}
 		}
 

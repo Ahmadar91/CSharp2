@@ -23,8 +23,8 @@ namespace Model.Models.AnimalModel
 		public Category Category { get; set; }
 		protected Animal()
 		{
-			Id = Guid.NewGuid().ToString();
 			Reset();
+			Id = Guid.NewGuid().ToString();
 		}
 
 		/// <summary>Resets this instance.</summary>

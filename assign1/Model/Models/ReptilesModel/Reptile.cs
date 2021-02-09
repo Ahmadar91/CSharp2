@@ -43,10 +43,12 @@ namespace Model.Models.ReptilesModel
 			Reptile reptile = null;
 			switch (type)
 			{
-				case ReptileSpecies.Frog:
+				case (ReptileSpecies)0:
+				case (ReptileSpecies)2:
 					reptile = new Frog(value2, value3, category);
 					break;
-				case ReptileSpecies.Snake:
+				case (ReptileSpecies)1:
+				case (ReptileSpecies)3:
 					reptile = new Snake(value2, value3, category);
 					break;
 			}
