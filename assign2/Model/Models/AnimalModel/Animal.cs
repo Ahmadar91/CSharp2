@@ -11,10 +11,21 @@ namespace Model.Models.AnimalModel
 		/// <summary>Gets or sets the identifier.</summary>
 		/// <value>The identifier.</value>
 		public string Id { get; set; }
+		/// <summary>Gets or sets the name.</summary>
+		/// <value>The name.</value>
 		public string Name { get; set; }
+		/// <summary>Gets or sets the age.</summary>
+		/// <value>The age.</value>
 		public int Age { get; set; }
+		/// <summary>Gets or sets the gender.</summary>
+		/// <value>The gender.</value>
 		public Gender Gender { get; set; }
+		/// <summary>Gets or sets a value indicating whether this instance is predator.</summary>
+		/// <value>
+		///   <c>true</c> if this instance is predator; otherwise, <c>false</c>.</value>
 		public bool IsPredator { get; set; }
+		/// <summary>Gets or sets the category.</summary>
+		/// <value>The category.</value>
 		public Category Category { get; set; }
 
 		protected Animal()
@@ -43,6 +54,10 @@ namespace Model.Models.AnimalModel
 			return strOut;
 		}
 
+		/// <summary>Gets the food schedule.</summary>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public abstract FoodSchedule GetFoodSchedule();
 
 		public virtual string GetExtraInfo() => $"{"Category:",-15} {Category,10}\n";

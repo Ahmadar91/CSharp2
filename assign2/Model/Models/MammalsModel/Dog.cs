@@ -12,6 +12,8 @@ namespace Model.Models.MammalsModel
 		/// <value>The breed.</value>
 		public string Breed { get; set; }
 
+		/// <summary>Gets or sets the food schedule.</summary>
+		/// <value>The food schedule.</value>
 		public FoodSchedule FoodSchedule { get; set; }
 
 		/// <summary>Initializes a new instance of the <see cref="Dog" /> class.</summary>
@@ -38,6 +40,7 @@ namespace Model.Models.MammalsModel
 			return str;
 		}
 
+		/// <summary>Sets the food schedule.</summary>
 		private void SetFoodSchedule()
 		{
 			FoodSchedule = new FoodSchedule
@@ -49,6 +52,10 @@ namespace Model.Models.MammalsModel
 			FoodSchedule.Add("Evening: any meat dish");
 		}
 
+		/// <summary>Gets the food schedule.</summary>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public override FoodSchedule GetFoodSchedule()
 		{
 			SetFoodSchedule();

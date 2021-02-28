@@ -7,6 +7,8 @@ namespace Model.Models.MammalsModel
 		/// <summary>Gets or sets the cuteness.</summary>
 		/// <value>The cuteness.</value>
 		public Cuteness Cuteness { get; set; }
+		/// <summary>Gets or sets the food schedule.</summary>
+		/// <value>The food schedule.</value>
 		public FoodSchedule FoodSchedule { get; set; }
 
 		/// <summary>Initializes a new instance of the <see cref="Cat" /> class.</summary>
@@ -29,17 +31,22 @@ namespace Model.Models.MammalsModel
 			return str;
 		}
 
+		/// <summary>Sets the food schedule.</summary>
 		private void SetFoodSchedule()
 		{
 			FoodSchedule = new FoodSchedule
 			{
 				EaterType = EaterType.Carnivore
 			};
-			FoodSchedule.Add("Morning: Flakes and Milk");
-			FoodSchedule.Add("Lunch: bones and Flakes");
-			FoodSchedule.Add("Evening: any meat dish");
+			FoodSchedule.Add("Morning: Milk");
+			FoodSchedule.Add("Lunch: Tuna");
+			FoodSchedule.Add("Evening: Cat Treats");
 		}
 
+		/// <summary>Gets the food schedule.</summary>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public override FoodSchedule GetFoodSchedule()
 		{
 			SetFoodSchedule();

@@ -6,11 +6,18 @@ namespace Model.Models
 {
 	public class FoodSchedule
 	{
+		/// <summary>Gets or sets the type of the eater.</summary>
+		/// <value>The type of the eater.</value>
 		public EaterType EaterType { get; set; }
+		/// <summary>Gets or sets the food list.</summary>
+		/// <value>The food list.</value>
 		public List<string> FoodList { get; set; }
 
+		/// <summary>Gets the count.</summary>
+		/// <value>The count.</value>
 		public int Count => FoodList.Count;
 
+		/// <summary>Initializes a new instance of the <see cref="FoodSchedule" /> class.</summary>
 		public FoodSchedule()
 		{
 			FoodList = new List<string>();

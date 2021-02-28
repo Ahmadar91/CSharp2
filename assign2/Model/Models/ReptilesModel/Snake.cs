@@ -7,6 +7,8 @@ namespace Model.Models.ReptilesModel
 		/// <summary>Gets or sets the poison level.</summary>
 		/// <value>The poison level.</value>
 		public PoisonLevel PoisonLevel { get; set; }
+		/// <summary>Gets or sets the food schedule.</summary>
+		/// <value>The food schedule.</value>
 		public FoodSchedule FoodSchedule { get; set; }
 
 		/// <summary>Initializes a new instance of the <see cref="Snake" /> class.</summary>
@@ -26,6 +28,7 @@ namespace Model.Models.ReptilesModel
 			str += $"PoisonLevel {PoisonLevel}";
 			return str;
 		}
+		/// <summary>Sets the food schedule.</summary>
 		private void SetFoodSchedule()
 		{
 			FoodSchedule = new FoodSchedule
@@ -37,6 +40,10 @@ namespace Model.Models.ReptilesModel
 			FoodSchedule.Add("Evening: Insects");
 		}
 
+		/// <summary>Gets the food schedule.</summary>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public override FoodSchedule GetFoodSchedule()
 		{
 			SetFoodSchedule();
