@@ -7,6 +7,10 @@ namespace Model.Models.ReptilesModel
 		/// <summary>Gets or sets the color.</summary>
 		/// <value>The color.</value>
 		public string Color { get; set; }
+		/// <summary>Gets or sets the food schedule.</summary>
+		/// <value>The food schedule.</value>
+		public FoodSchedule FoodSchedule { get; set; }
+
 		/// <summary>Initializes a new instance of the <see cref="Frog" /> class.</summary>
 		/// <param name="canLiveOnBothWaterAndLand">if set to <c>true</c> [can live on both water and land].</param>
 		/// <param name="weight">The weight.</param>
@@ -22,6 +26,28 @@ namespace Model.Models.ReptilesModel
 			var str = base.ToString();
 			str += $"Color {Color}";
 			return str;
+		}
+
+		/// <summary>Sets the food schedule.</summary>
+		private void SetFoodSchedule()
+		{
+			FoodSchedule = new FoodSchedule
+			{
+				EaterType = EaterType.Omnivorous
+			};
+			FoodSchedule.Add("Morning: Bugs");
+			FoodSchedule.Add("Lunch: Bugs");
+			FoodSchedule.Add("Evening: Bugs");
+		}
+
+		/// <summary>Gets the food schedule.</summary>
+		/// <returns>
+		///   <br />
+		/// </returns>
+		public override FoodSchedule GetFoodSchedule()
+		{
+			SetFoodSchedule();
+			return FoodSchedule;
 		}
 	}
 }

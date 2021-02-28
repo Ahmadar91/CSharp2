@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography;
-using Model.Models.AnimalModel;
+﻿using Model.Models.AnimalModel;
 
 namespace Model.Models.MammalsModel
 {
@@ -12,6 +11,8 @@ namespace Model.Models.MammalsModel
 		/// <summary>Gets or sets the breed.</summary>
 		/// <value>The breed.</value>
 		public string Breed { get; set; }
+
+		public FoodSchedule FoodSchedule { get; set; }
 
 		/// <summary>Initializes a new instance of the <see cref="Dog" /> class.</summary>
 		/// <param name="numOfTeeth">The number of teeth.</param>
@@ -35,6 +36,23 @@ namespace Model.Models.MammalsModel
 			var str = base.ToString();
 			str += $"Breed {Breed}";
 			return str;
+		}
+
+		private void SetFoodSchedule()
+		{
+			FoodSchedule = new FoodSchedule
+			{
+				EaterType = EaterType.Omnivorous
+			};
+			FoodSchedule.Add("Morning: Flakes and Milk");
+			FoodSchedule.Add("Lunch: bones and Flakes");
+			FoodSchedule.Add("Evening: any meat dish");
+		}
+
+		public override FoodSchedule GetFoodSchedule()
+		{
+			SetFoodSchedule();
+			return FoodSchedule;
 		}
 	}
 }

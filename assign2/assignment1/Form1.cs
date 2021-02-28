@@ -1,4 +1,6 @@
-﻿
+﻿using controller.AnimalManager;
+using controller.Interface;
+using Model.Interfaces;
 using Model.Models.AnimalModel;
 using Model.Models.MammalsModel;
 using Model.Models.ReptilesModel;
@@ -15,14 +17,18 @@ namespace assignment1
 		/// <summary>Gets or sets the species.</summary>
 		/// <value>The species.</value>
 		private string Species { get; set; }
+
 		private Category _Category { get; set; }
+
+		private IAnimal _animal;
+		private IAnimalManager _animalManager;
+
 		/// <summary>Initializes a new instance of the <see cref="Form1" /> class.</summary>
 		public Form1()
 		{
 			InitializeComponent();
-
 			InitializeGUI();
-
+			_animalManager = new AnimalManager();
 		}
 
 		/// <summary>Initializes the GUI.</summary>
@@ -36,13 +42,13 @@ namespace assignment1
 			categoryList.SelectedIndex = 0;
 			specifications.Text = $"{(Category)categoryList.SelectedIndex}  specifications";
 			cmbCuteness.Visible = false;
-			txtBreed.Visible = false;
+			txtBreed.Visible = true;
 			animalInfo.Text = "";
 			cmbBool.Items.Add("false");
 			cmbBool.Items.Add("true");
 			cmbBool.SelectedIndex = 1;
 			label3Spec.Text = "Skin type";
-
+			Omni.Text = "";
 		}
 
 		/// <summary>Reads the category.</summary>
@@ -78,6 +84,12 @@ namespace assignment1
 				return;
 			}
 			animalInfo.Text = animal.ToString();
+			_animalManager.Add(animal);
+			animalList.Items.Clear();
+			animalList.Items.AddRange(_animalManager.GetAnimalListInfoStrings());
+			Omni.Text = animal.GetFoodSchedule().EaterType.ToString();
+			foodList.Items.Clear();
+			foodList.Items.AddRange(animal.GetFoodSchedule().GetFoodListInfoStrings());
 		}
 
 		/// <summary>Reads the input.</summary>
@@ -86,9 +98,7 @@ namespace assignment1
 		/// </returns>
 		private Animal ReadInput()
 		{
-
 			_Category = ListAll.Checked ? ReadSpecies() : ReadCategory();
-
 
 			Animal animal = null;
 			switch (_Category)
@@ -96,9 +106,11 @@ namespace assignment1
 				case Category.Mammal:
 					animal = CreateMammal();
 					break;
+
 				case Category.Reptile:
 					animal = CreateReptile();
 					break;
+
 				default:
 					animal = null;
 					break;
@@ -122,7 +134,6 @@ namespace assignment1
 				animal.Age = age;
 			}
 			animal.Gender = (Gender)Enum.Parse(typeof(Gender), cmbGender.Text);
-
 		}
 
 		/// <summary>Creates the reptile.</summary>
@@ -140,21 +151,23 @@ namespace assignment1
 			}
 
 			ReptileSpecies species = ReadReptileSpecies();
-			Animal animal = new Reptile().Create(species, canLiveOnLand, weight, _Category);
 			switch (species)
 			{
 				case (ReptileSpecies)0:
 				case (ReptileSpecies)2:
-					((Frog)animal).Color = txtBreed.Text;
+					_animal = new Frog(canLiveOnLand, weight, _Category);
+					((Frog)_animal).Color = txtBreed.Text;
 					break;
+
 				case (ReptileSpecies)1:
 				case (ReptileSpecies)3:
-					((Snake)animal).PoisonLevel = (PoisonLevel)cmbCuteness.SelectedIndex;
+					_animal = new Snake(canLiveOnLand, weight, _Category);
+					((Snake)_animal).PoisonLevel = (PoisonLevel)cmbCuteness.SelectedIndex;
 					break;
 			}
-			return animal;
-
+			return _animal as Animal;
 		}
+
 		/// <summary>Creates the mammal.</summary>
 		/// <returns>
 		///   Animal
@@ -174,19 +187,22 @@ namespace assignment1
 
 			var skin = cmbSpec3.SelectedIndex;
 			MammalSpecies species = ReadMammalSpecies();
-			Animal animal = new Mammal().Create(species, numOfTeeth, tailLength, _Category, (SkinType)skin);
 			switch (species)
 			{
 				case MammalSpecies.Dog:
-					((Dog)animal).Breed = txtBreed.Text;
+					_animal = new Dog(numOfTeeth, tailLength, _Category, (SkinType)skin);
+					((Dog)_animal).Breed = txtBreed.Text;
 					break;
+
 				case MammalSpecies.Cat:
-					((Cat)animal).Cuteness = (Cuteness)cmbCuteness.SelectedIndex;
+					_animal = new Cat(numOfTeeth, tailLength, _Category, (SkinType)skin);
+					((Cat)_animal).Cuteness = (Cuteness)cmbCuteness.SelectedIndex;
 					break;
 			}
 
-			return animal;
+			return _animal as Animal;
 		}
+
 		/// <summary>Reads the reptile species.</summary>
 		/// <returns>
 		///   ReptileSpecies
@@ -208,8 +224,6 @@ namespace assignment1
 			return species;
 		}
 
-
-
 		/// <summary>Reads the mammal species.</summary>
 		/// <returns>
 		///  MammalSpecies
@@ -229,7 +243,6 @@ namespace assignment1
 				species = MammalSpecies.Cat;
 			}
 			return species;
-
 		}
 
 		/// <summary>Handles the SelectedIndexChanged event of the categoryList control.</summary>
@@ -244,6 +257,7 @@ namespace assignment1
 					speciesList.Items.AddRange(Enum.GetNames(typeof(MammalSpecies)));
 					speciesList.SelectedIndex = 0;
 					break;
+
 				case Category.Reptile:
 					speciesList.Items.AddRange(Enum.GetNames(typeof(ReptileSpecies)));
 					speciesList.SelectedIndex = 0;
@@ -251,6 +265,7 @@ namespace assignment1
 			}
 		}
 
+		/// <summary>Gets the reptile properties.</summary>
 		private void GetReptileProperties()
 		{
 			specifications.Text = "Reptile Specifications";
@@ -263,6 +278,7 @@ namespace assignment1
 			Species = "Reptile";
 		}
 
+		/// <summary>Gets the mammal properties.</summary>
 		private void GetMammalProperties()
 		{
 			cmbSpec3.Items.Clear();
@@ -305,7 +321,6 @@ namespace assignment1
 				cmbCuteness.SelectedIndex = 2;
 				cmbCuteness.Visible = true;
 				txtBreed.Visible = false;
-
 			}
 
 			if (selectedIndex == ReptileSpecies.Frog.ToString())
@@ -328,12 +343,14 @@ namespace assignment1
 				cmbCuteness.Visible = true;
 				txtBreed.Visible = false;
 			}
-
 		}
 
+		/// <summary>Reads the species.</summary>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		private Category ReadSpecies()
 		{
-
 			var selectedIndex = speciesList.SelectedItem.ToString();
 			if (selectedIndex == MammalSpecies.Dog.ToString() || selectedIndex == MammalSpecies.Cat.ToString())
 			{
@@ -341,7 +358,6 @@ namespace assignment1
 			}
 
 			return Category.Reptile;
-
 		}
 
 		/// <summary>Handles the CheckedChanged event of the ListAll control.</summary>
@@ -383,6 +399,24 @@ namespace assignment1
 			{
 				pictureBox1.Image = new Bitmap(op.FileName);
 			}
+		}
+
+		/// <summary>Handles the SelectedIndexChanged event of the animalList control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+		private void animalList_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			var index = animalList.FocusedItem.Index;
+			if (index >= 0 && animalList.FocusedItem != null)
+			{
+				var selectedAnimal = _animalManager.GetAnimalAt(index);
+				animalInfo.Text = selectedAnimal.ToString();
+				foodList.Items.Clear();
+				Omni.Text = selectedAnimal.GetFoodSchedule().EaterType.ToString();
+				var food = selectedAnimal.GetFoodSchedule().GetFoodListInfoStrings();
+				foodList.Items.AddRange(food);
+			}
+
 		}
 	}
 }

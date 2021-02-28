@@ -1,0 +1,9 @@
+C:\Users\ahmad\Desktop\CSharp2\assign2\controller\bin\Debug\controller.dll
+C:\Users\ahmad\Desktop\CSharp2\assign2\controller\bin\Debug\controller.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign2\controller\bin\Debug\Model.dll
+C:\Users\ahmad\Desktop\CSharp2\assign2\controller\bin\Debug\Model.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign2\controller\obj\Debug\controller.csprojAssemblyReference.cache
+C:\Users\ahmad\Desktop\CSharp2\assign2\controller\obj\Debug\controller.csproj.CoreCompileInputs.cache
+C:\Users\ahmad\Desktop\CSharp2\assign2\controller\obj\Debug\controller.csproj.CopyComplete
+C:\Users\ahmad\Desktop\CSharp2\assign2\controller\obj\Debug\controller.dll
+C:\Users\ahmad\Desktop\CSharp2\assign2\controller\obj\Debug\controller.pdb

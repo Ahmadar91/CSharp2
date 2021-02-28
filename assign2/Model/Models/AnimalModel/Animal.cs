@@ -1,26 +1,22 @@
 ﻿using System;
+using System.Runtime.InteropServices.ComTypes;
+using Model.Interfaces;
+using Model.Models.MammalsModel;
+
 
 namespace Model.Models.AnimalModel
 {
-	public abstract class Animal
+	public abstract class Animal : IAnimal
 	{
 		/// <summary>Gets or sets the identifier.</summary>
 		/// <value>The identifier.</value>
 		public string Id { get; set; }
-
-		/// <summary>Gets or sets the name.</summary>
-		/// <value>The name.</value>
 		public string Name { get; set; }
-		/// <summary>Gets or sets the age.</summary>
-		/// <value>The age.</value>
 		public int Age { get; set; }
-		/// <summary>Gets or sets the gender.</summary>
-		/// <value>The gender.</value>
 		public Gender Gender { get; set; }
 		public bool IsPredator { get; set; }
-		/// <summary>Gets or sets the category.</summary>
-		/// <value>The category.</value>
 		public Category Category { get; set; }
+
 		protected Animal()
 		{
 			Reset();
@@ -34,8 +30,8 @@ namespace Model.Models.AnimalModel
 			Gender = Gender.Unknown;
 			Age = 0;
 			IsPredator = false;
-
 		}
+
 		/// <summary>Converts to string.</summary>
 		/// <returns>A <see cref="System.String" /> that represents this instance.</returns>
 		public override string ToString()
@@ -46,5 +42,11 @@ namespace Model.Models.AnimalModel
 
 			return strOut;
 		}
+
+		public abstract FoodSchedule GetFoodSchedule();
+
+		public virtual string GetExtraInfo() => $"{"Category:",-15} {Category,10}\n";
+
+
 	}
 }

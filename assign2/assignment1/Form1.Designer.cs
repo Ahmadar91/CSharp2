@@ -57,12 +57,22 @@ namespace assignment1
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.foodList = new System.Windows.Forms.ListView();
+			this.foodColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.animalList = new System.Windows.Forms.ListView();
+			this.IdHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.NameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.AgeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.GenderHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.animalInfo = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.Omni = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.speciesSpec.SuspendLayout();
 			this.specifications.SuspendLayout();
+			this.groupBox4.SuspendLayout();
 			this.groupBox5.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -86,14 +96,14 @@ namespace assignment1
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(12, 39);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(1232, 456);
+			this.groupBox1.Size = new System.Drawing.Size(1408, 456);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Animal Specifications";
 			// 
 			// upload
 			// 
-			this.upload.Location = new System.Drawing.Point(856, 341);
+			this.upload.Location = new System.Drawing.Point(1032, 341);
 			this.upload.Name = "upload";
 			this.upload.Size = new System.Drawing.Size(145, 38);
 			this.upload.TabIndex = 16;
@@ -103,7 +113,7 @@ namespace assignment1
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Location = new System.Drawing.Point(747, 32);
+			this.pictureBox1.Location = new System.Drawing.Point(926, 46);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(359, 220);
 			this.pictureBox1.TabIndex = 15;
@@ -140,6 +150,7 @@ namespace assignment1
 			// 
 			// cmbCuteness
 			// 
+			this.cmbCuteness.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbCuteness.FormattingEnabled = true;
 			this.cmbCuteness.Location = new System.Drawing.Point(98, 52);
 			this.cmbCuteness.Name = "cmbCuteness";
@@ -163,6 +174,7 @@ namespace assignment1
 			// 
 			// cmbGender
 			// 
+			this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbGender.FormattingEnabled = true;
 			this.cmbGender.Location = new System.Drawing.Point(114, 131);
 			this.cmbGender.Name = "cmbGender";
@@ -250,6 +262,7 @@ namespace assignment1
 			// 
 			// cmbSpec3
 			// 
+			this.cmbSpec3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbSpec3.FormattingEnabled = true;
 			this.cmbSpec3.Location = new System.Drawing.Point(150, 117);
 			this.cmbSpec3.Name = "cmbSpec3";
@@ -325,12 +338,70 @@ namespace assignment1
 			// 
 			// groupBox4
 			// 
+			this.groupBox4.Controls.Add(this.Omni);
+			this.groupBox4.Controls.Add(this.label3);
+			this.groupBox4.Controls.Add(this.foodList);
+			this.groupBox4.Controls.Add(this.animalList);
 			this.groupBox4.Location = new System.Drawing.Point(12, 501);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(1242, 314);
+			this.groupBox4.Size = new System.Drawing.Size(1285, 314);
 			this.groupBox4.TabIndex = 1;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "List of registred animals";
+			// 
+			// foodList
+			// 
+			this.foodList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.foodColumn});
+			this.foodList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+			this.foodList.HideSelection = false;
+			this.foodList.LabelWrap = false;
+			this.foodList.Location = new System.Drawing.Point(907, 49);
+			this.foodList.Name = "foodList";
+			this.foodList.Size = new System.Drawing.Size(360, 239);
+			this.foodList.TabIndex = 1;
+			this.foodList.UseCompatibleStateImageBehavior = false;
+			this.foodList.View = System.Windows.Forms.View.List;
+			// 
+			// foodColumn
+			// 
+			this.foodColumn.Text = "food";
+			this.foodColumn.Width = 197;
+			// 
+			// animalList
+			// 
+			this.animalList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.IdHeader,
+            this.NameHeader,
+            this.AgeHeader,
+            this.GenderHeader});
+			this.animalList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+			this.animalList.HideSelection = false;
+			this.animalList.Location = new System.Drawing.Point(337, 21);
+			this.animalList.Name = "animalList";
+			this.animalList.Size = new System.Drawing.Size(549, 267);
+			this.animalList.TabIndex = 0;
+			this.animalList.UseCompatibleStateImageBehavior = false;
+			this.animalList.View = System.Windows.Forms.View.Details;
+			this.animalList.SelectedIndexChanged += new System.EventHandler(this.animalList_SelectedIndexChanged);
+			// 
+			// IdHeader
+			// 
+			this.IdHeader.Text = "Id";
+			this.IdHeader.Width = 97;
+			// 
+			// NameHeader
+			// 
+			this.NameHeader.Text = "Name";
+			// 
+			// AgeHeader
+			// 
+			this.AgeHeader.Text = "Age";
+			// 
+			// GenderHeader
+			// 
+			this.GenderHeader.Text = "Gender";
+			this.GenderHeader.Width = 134;
 			// 
 			// groupBox5
 			// 
@@ -351,11 +422,29 @@ namespace assignment1
 			this.animalInfo.TabIndex = 0;
 			this.animalInfo.Text = "info";
 			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(917, 21);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(82, 17);
+			this.label3.TabIndex = 2;
+			this.label3.Text = "Eater Type:";
+			// 
+			// Omni
+			// 
+			this.Omni.AutoSize = true;
+			this.Omni.Location = new System.Drawing.Point(1118, 21);
+			this.Omni.Name = "Omni";
+			this.Omni.Size = new System.Drawing.Size(46, 17);
+			this.Omni.TabIndex = 3;
+			this.Omni.Text = "label4";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1130, 947);
+			this.ClientSize = new System.Drawing.Size(1323, 821);
 			this.Controls.Add(this.groupBox5);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox1);
@@ -368,6 +457,8 @@ namespace assignment1
 			this.speciesSpec.PerformLayout();
 			this.specifications.ResumeLayout(false);
 			this.specifications.PerformLayout();
+			this.groupBox4.ResumeLayout(false);
+			this.groupBox4.PerformLayout();
 			this.groupBox5.ResumeLayout(false);
 			this.groupBox5.PerformLayout();
 			this.ResumeLayout(false);
@@ -406,6 +497,15 @@ namespace assignment1
 		private System.Windows.Forms.Label label3Spec;
 		private System.Windows.Forms.Button upload;
 		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.ListView foodList;
+		private System.Windows.Forms.ListView animalList;
+		private System.Windows.Forms.ColumnHeader IdHeader;
+		private System.Windows.Forms.ColumnHeader NameHeader;
+		private System.Windows.Forms.ColumnHeader AgeHeader;
+		private System.Windows.Forms.ColumnHeader GenderHeader;
+		private System.Windows.Forms.ColumnHeader foodColumn;
+		private System.Windows.Forms.Label Omni;
+		private System.Windows.Forms.Label label3;
 	}
 }
 

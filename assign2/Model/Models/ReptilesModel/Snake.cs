@@ -7,6 +7,8 @@ namespace Model.Models.ReptilesModel
 		/// <summary>Gets or sets the poison level.</summary>
 		/// <value>The poison level.</value>
 		public PoisonLevel PoisonLevel { get; set; }
+		public FoodSchedule FoodSchedule { get; set; }
+
 		/// <summary>Initializes a new instance of the <see cref="Snake" /> class.</summary>
 		/// <param name="canLiveOnBothWaterAndLand">if set to <c>true</c> [can live on both water and land].</param>
 		/// <param name="weight">The weight.</param>
@@ -23,6 +25,22 @@ namespace Model.Models.ReptilesModel
 			var str = base.ToString();
 			str += $"PoisonLevel {PoisonLevel}";
 			return str;
+		}
+		private void SetFoodSchedule()
+		{
+			FoodSchedule = new FoodSchedule
+			{
+				EaterType = EaterType.Omnivorous
+			};
+			FoodSchedule.Add("Morning: Meat");
+			FoodSchedule.Add("Lunch: Frogs");
+			FoodSchedule.Add("Evening: Insects");
+		}
+
+		public override FoodSchedule GetFoodSchedule()
+		{
+			SetFoodSchedule();
+			return FoodSchedule;
 		}
 	}
 }
