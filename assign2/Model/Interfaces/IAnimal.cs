@@ -1,4 +1,5 @@
-﻿using Model.Models.AnimalModel;
+﻿using Model.Models;
+using Model.Models.AnimalModel;
 
 namespace Model.Interfaces
 {
@@ -23,6 +24,8 @@ namespace Model.Interfaces
 		/// <summary>Gets or sets the category.</summary>
 		/// <value>The category.</value>
 		Category Category { get; set; }
+
+		FoodSchedule GetFoodSchedule();
 
 	}
 }
