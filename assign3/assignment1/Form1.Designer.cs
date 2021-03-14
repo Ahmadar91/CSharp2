@@ -102,7 +102,7 @@ namespace assignment1
 			this.groupBox1.Margin = new System.Windows.Forms.Padding(7);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Padding = new System.Windows.Forms.Padding(7);
-			this.groupBox1.Size = new System.Drawing.Size(3344, 1054);
+			this.groupBox1.Size = new System.Drawing.Size(3104, 1054);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Animal Specifications";
@@ -509,7 +509,7 @@ namespace assignment1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(3142, 1899);
+			this.ClientSize = new System.Drawing.Size(3844, 1950);
 			this.Controls.Add(this.groupBox5);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox1);

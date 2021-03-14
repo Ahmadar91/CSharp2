@@ -41,3 +41,4 @@ C:\Users\Ahmad\Desktop\c#2\CSharp2\assign3\assignment1\obj\Debug\View.csproj.Cor
 C:\Users\Ahmad\Desktop\c#2\CSharp2\assign3\assignment1\obj\Debug\View.csproj.CopyComplete
 C:\Users\Ahmad\Desktop\c#2\CSharp2\assign3\assignment1\obj\Debug\assignment1.exe
 C:\Users\Ahmad\Desktop\c#2\CSharp2\assign3\assignment1\obj\Debug\assignment1.pdb
+C:\Users\Ahmad\Desktop\c#2\CSharp2\assign3\assignment1\obj\Debug\assignment1.FoodItemForm.resources

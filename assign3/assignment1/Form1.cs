@@ -5,6 +5,7 @@ using Model.Models.MammalsModel;
 using Model.Models.ReptilesModel;
 using System;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace assignment1
@@ -178,7 +179,7 @@ namespace assignment1
 				MessageBox.Show("Please give a valid valiue for number of teeth");
 				return null;
 			}
-			if (!double.TryParse(txtSpec1.Text, out var tailLength))
+			if (!double.TryParse(txtSpec2.Text, out var tailLength))
 			{
 				MessageBox.Show("Please give a valid valiue for tail length");
 				return null;
@@ -414,6 +415,54 @@ namespace assignment1
 				Omni.Text = selectedAnimal.GetFoodSchedule().EaterType.ToString();
 				var food = selectedAnimal.GetFoodSchedule().GetFoodListInfoStrings();
 				foodList.Items.AddRange(food);
+				if (selectedAnimal.Category == Category.Mammal)
+				{
+					var dog = selectedAnimal as Dog;
+					if (dog?.Breed != null)
+					{
+						AnimalName.Text = dog.Name;
+						Age.Text = dog.Age.ToString();
+						txtBreed.Text = dog.Breed;
+						txtSpec1.Text = dog.NumOfTeeth.ToString();
+						txtSpec2.Text = dog.TailLength.ToString(CultureInfo.InvariantCulture);
+						cmbGender.SelectedIndex = (int)dog.Gender;
+					}
+					else
+					{
+						AnimalName.Text = ((Cat) selectedAnimal).Name;
+						Age.Text = ((Cat)selectedAnimal).Age.ToString();
+						cmbCuteness.SelectedIndex = (int)((Cat)selectedAnimal).Cuteness;
+						txtSpec1.Text = ((Cat)selectedAnimal).NumOfTeeth.ToString();
+						txtSpec2.Text = ((Cat)selectedAnimal).TailLength.ToString(CultureInfo.InvariantCulture);
+						cmbGender.SelectedIndex = (int)((Cat)selectedAnimal).Gender;
+
+					}
+
+				}
+				if (selectedAnimal.Category == Category.Reptile)
+				{
+
+					if (((Frog)selectedAnimal).Color != null)
+					{
+						AnimalName.Text = ((Frog)selectedAnimal).Name;
+						Age.Text = ((Frog)selectedAnimal).Age.ToString();
+						txtBreed.Text = ((Frog)selectedAnimal).Color;
+						cmbBool.SelectedIndex = ((Frog)selectedAnimal).CanLiveOnBothWaterAndLand ? 1 : 0;
+						txtSpec2.Text = ((Frog)selectedAnimal).Weight.ToString(CultureInfo.InvariantCulture);
+						cmbGender.SelectedIndex = (int)((Frog)selectedAnimal).Gender;
+					}
+					else
+					{
+						AnimalName.Text = ((Snake)selectedAnimal).Name;
+						Age.Text = ((Snake)selectedAnimal).Age.ToString();
+						cmbCuteness.SelectedIndex = (int)((Snake)selectedAnimal).PoisonLevel;
+						cmbBool.SelectedIndex = ((Snake)selectedAnimal).CanLiveOnBothWaterAndLand ? 1 : 0;
+						txtSpec2.Text = ((Snake)selectedAnimal).Weight.ToString(CultureInfo.InvariantCulture);
+						cmbGender.SelectedIndex = (int)((Snake)selectedAnimal).Gender;
+
+					}
+				}
+
 			}
 		}
 
@@ -433,10 +482,10 @@ namespace assignment1
 
 		private void ChangeBtm_Click(object sender, EventArgs e)
 		{
-			//var index = animalList.FocusedItem.Index;
+			var index = animalList.FocusedItem.Index;
 			//if (index >= 0 && animalList.FocusedItem != null)
 			//{
-			//	ChangeForm contactForm = new ChangeForm("Change new Customer");
+
 			//	contactForm.ContactData = customerManager.GetCustomer(index).Contact;
 			//	if (contactForm.ShowDialog() == DialogResult.OK)
 			//	{
