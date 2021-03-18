@@ -1,4 +1,5 @@
-﻿using Model.Models.AnimalModel;
+﻿using System.Collections.Generic;
+using Model.Models.AnimalModel;
 
 namespace Model.Models.MammalsModel
 {

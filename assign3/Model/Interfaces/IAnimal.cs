@@ -1,4 +1,5 @@
-﻿using Model.Models;
+﻿using System.Collections.Generic;
+using Model.Models;
 using Model.Models.AnimalModel;
 
 namespace Model.Interfaces
@@ -25,7 +26,10 @@ namespace Model.Interfaces
 		/// <value>The category.</value>
 		Category Category { get; set; }
 
+		/// <summary>Gets the food schedule.</summary>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		FoodSchedule GetFoodSchedule();
-
 	}
 }

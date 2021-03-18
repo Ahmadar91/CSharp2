@@ -16,3 +16,9 @@ C:\Users\Ahmad\Desktop\c#2\CSharp2\assign3\Model\obj\Debug\Model.csprojAssemblyR
 C:\Users\Ahmad\Desktop\c#2\CSharp2\assign3\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\Ahmad\Desktop\c#2\CSharp2\assign3\Model\obj\Debug\Model.dll
 C:\Users\Ahmad\Desktop\c#2\CSharp2\assign3\Model\obj\Debug\Model.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign3\Model\bin\Debug\Model.dll
+C:\Users\ahmad\Desktop\CSharp2\assign3\Model\bin\Debug\Model.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign3\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\ahmad\Desktop\CSharp2\assign3\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\ahmad\Desktop\CSharp2\assign3\Model\obj\Debug\Model.dll
+C:\Users\ahmad\Desktop\CSharp2\assign3\Model\obj\Debug\Model.pdb

@@ -32,128 +32,147 @@ namespace assignment1
 			this.label1 = new System.Windows.Forms.Label();
 			this.NameTxt = new System.Windows.Forms.TextBox();
 			this.g = new System.Windows.Forms.GroupBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.ingredientTxt = new System.Windows.Forms.TextBox();
-			this.listView1 = new System.Windows.Forms.ListView();
-			this.addBtm = new System.Windows.Forms.Button();
-			this.changeBtm = new System.Windows.Forms.Button();
+			this.cancelBtm = new System.Windows.Forms.Button();
+			this.okBtm = new System.Windows.Forms.Button();
 			this.removeBtm = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
-			this.button5 = new System.Windows.Forms.Button();
+			this.changeBtm = new System.Windows.Forms.Button();
+			this.addBtm = new System.Windows.Forms.Button();
+			this.ingredientTxt = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.listBox = new System.Windows.Forms.ListBox();
 			this.g.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(58, 101);
+			this.label1.Location = new System.Drawing.Point(24, 44);
+			this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(103, 37);
+			this.label1.Size = new System.Drawing.Size(45, 17);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Name";
 			// 
 			// NameTxt
 			// 
-			this.NameTxt.Location = new System.Drawing.Point(340, 101);
+			this.NameTxt.Location = new System.Drawing.Point(143, 44);
+			this.NameTxt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
 			this.NameTxt.Name = "NameTxt";
-			this.NameTxt.Size = new System.Drawing.Size(715, 44);
+			this.NameTxt.Size = new System.Drawing.Size(303, 22);
 			this.NameTxt.TabIndex = 1;
 			// 
 			// g
 			// 
-			this.g.Controls.Add(this.button5);
-			this.g.Controls.Add(this.button4);
+			this.g.Controls.Add(this.listBox);
+			this.g.Controls.Add(this.cancelBtm);
+			this.g.Controls.Add(this.okBtm);
 			this.g.Controls.Add(this.removeBtm);
 			this.g.Controls.Add(this.changeBtm);
 			this.g.Controls.Add(this.addBtm);
-			this.g.Controls.Add(this.listView1);
 			this.g.Controls.Add(this.ingredientTxt);
 			this.g.Controls.Add(this.label2);
-			this.g.Location = new System.Drawing.Point(49, 224);
+			this.g.Location = new System.Drawing.Point(21, 97);
+			this.g.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
 			this.g.Name = "g";
-			this.g.Size = new System.Drawing.Size(1070, 982);
+			this.g.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);
+			this.g.Size = new System.Drawing.Size(451, 425);
 			this.g.TabIndex = 2;
 			this.g.TabStop = false;
 			this.g.Text = "Ingredients";
 			// 
-			// label2
+			// cancelBtm
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(36, 117);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(158, 37);
-			this.label2.TabIndex = 0;
-			this.label2.Text = "Ingredient";
+			this.cancelBtm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.cancelBtm.Location = new System.Drawing.Point(290, 350);
+			this.cancelBtm.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+			this.cancelBtm.Name = "cancelBtm";
+			this.cancelBtm.Size = new System.Drawing.Size(121, 48);
+			this.cancelBtm.TabIndex = 7;
+			this.cancelBtm.Text = "Cancel";
+			this.cancelBtm.UseVisualStyleBackColor = true;
 			// 
-			// ingredientTxt
+			// okBtm
 			// 
-			this.ingredientTxt.Location = new System.Drawing.Point(291, 110);
-			this.ingredientTxt.Name = "ingredientTxt";
-			this.ingredientTxt.Size = new System.Drawing.Size(715, 44);
-			this.ingredientTxt.TabIndex = 1;
-			// 
-			// listView1
-			// 
-			this.listView1.HideSelection = false;
-			this.listView1.Location = new System.Drawing.Point(291, 288);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(685, 456);
-			this.listView1.TabIndex = 2;
-			this.listView1.UseCompatibleStateImageBehavior = false;
-			// 
-			// addBtm
-			// 
-			this.addBtm.Location = new System.Drawing.Point(28, 306);
-			this.addBtm.Name = "addBtm";
-			this.addBtm.Size = new System.Drawing.Size(213, 77);
-			this.addBtm.TabIndex = 3;
-			this.addBtm.Text = "Add";
-			this.addBtm.UseVisualStyleBackColor = true;
-			// 
-			// changeBtm
-			// 
-			this.changeBtm.Location = new System.Drawing.Point(28, 462);
-			this.changeBtm.Name = "changeBtm";
-			this.changeBtm.Size = new System.Drawing.Size(213, 77);
-			this.changeBtm.TabIndex = 4;
-			this.changeBtm.Text = "Change";
-			this.changeBtm.UseVisualStyleBackColor = true;
+			this.okBtm.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.okBtm.Location = new System.Drawing.Point(123, 350);
+			this.okBtm.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+			this.okBtm.Name = "okBtm";
+			this.okBtm.Size = new System.Drawing.Size(121, 48);
+			this.okBtm.TabIndex = 6;
+			this.okBtm.Text = "Ok";
+			this.okBtm.UseVisualStyleBackColor = true;
+			this.okBtm.Click += new System.EventHandler(this.okBtm_Click);
 			// 
 			// removeBtm
 			// 
-			this.removeBtm.Location = new System.Drawing.Point(28, 624);
+			this.removeBtm.Location = new System.Drawing.Point(12, 270);
+			this.removeBtm.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
 			this.removeBtm.Name = "removeBtm";
-			this.removeBtm.Size = new System.Drawing.Size(213, 77);
+			this.removeBtm.Size = new System.Drawing.Size(90, 33);
 			this.removeBtm.TabIndex = 5;
 			this.removeBtm.Text = "Remove";
 			this.removeBtm.UseVisualStyleBackColor = true;
+			this.removeBtm.Click += new System.EventHandler(this.removeBtm_Click);
 			// 
-			// button4
+			// changeBtm
 			// 
-			this.button4.Location = new System.Drawing.Point(291, 810);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(288, 110);
-			this.button4.TabIndex = 6;
-			this.button4.Text = "button4";
-			this.button4.UseVisualStyleBackColor = true;
+			this.changeBtm.Location = new System.Drawing.Point(12, 200);
+			this.changeBtm.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+			this.changeBtm.Name = "changeBtm";
+			this.changeBtm.Size = new System.Drawing.Size(90, 33);
+			this.changeBtm.TabIndex = 4;
+			this.changeBtm.Text = "Change";
+			this.changeBtm.UseVisualStyleBackColor = true;
+			this.changeBtm.Click += new System.EventHandler(this.changeBtm_Click);
 			// 
-			// button5
+			// addBtm
 			// 
-			this.button5.Location = new System.Drawing.Point(688, 810);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(288, 110);
-			this.button5.TabIndex = 7;
-			this.button5.Text = "button5";
-			this.button5.UseVisualStyleBackColor = true;
+			this.addBtm.Location = new System.Drawing.Point(12, 132);
+			this.addBtm.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+			this.addBtm.Name = "addBtm";
+			this.addBtm.Size = new System.Drawing.Size(90, 33);
+			this.addBtm.TabIndex = 3;
+			this.addBtm.Text = "Add";
+			this.addBtm.UseVisualStyleBackColor = true;
+			this.addBtm.Click += new System.EventHandler(this.addBtm_Click);
+			// 
+			// ingredientTxt
+			// 
+			this.ingredientTxt.Location = new System.Drawing.Point(123, 48);
+			this.ingredientTxt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+			this.ingredientTxt.Name = "ingredientTxt";
+			this.ingredientTxt.Size = new System.Drawing.Size(303, 22);
+			this.ingredientTxt.TabIndex = 1;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(15, 51);
+			this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(71, 17);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Ingredient";
+			// 
+			// listBox
+			// 
+			this.listBox.FormattingEnabled = true;
+			this.listBox.ItemHeight = 16;
+			this.listBox.Location = new System.Drawing.Point(123, 118);
+			this.listBox.Name = "listBox";
+			this.listBox.Size = new System.Drawing.Size(302, 212);
+			this.listBox.TabIndex = 8;
+			this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
 			// 
 			// FoodItemForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1151, 1239);
+			this.ClientSize = new System.Drawing.Size(485, 536);
 			this.Controls.Add(this.g);
 			this.Controls.Add(this.NameTxt);
 			this.Controls.Add(this.label1);
+			this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
 			this.Name = "FoodItemForm";
 			this.Text = "Form2";
 			this.g.ResumeLayout(false);
@@ -168,13 +187,13 @@ namespace assignment1
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox NameTxt;
 		private System.Windows.Forms.GroupBox g;
-		private System.Windows.Forms.Button button5;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button cancelBtm;
+		private System.Windows.Forms.Button okBtm;
 		private System.Windows.Forms.Button removeBtm;
 		private System.Windows.Forms.Button changeBtm;
 		private System.Windows.Forms.Button addBtm;
-		private System.Windows.Forms.ListView listView1;
 		private System.Windows.Forms.TextBox ingredientTxt;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.ListBox listBox;
 	}
 }

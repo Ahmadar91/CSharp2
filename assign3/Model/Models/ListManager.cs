@@ -1,18 +1,24 @@
 ﻿using Model.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Model.Models
 {
 	public class ListManager<T> : IListManager<T>
 	{
 		private readonly List<T> _list;
-		public int Count { get; }
-
+		public int Count => _list.Count;
+		public List<T> List => _list;
+		/// <summary>Initializes a new instance of the <see cref="ListManager{T}" /> class.</summary>
 		public ListManager()
 		{
 			_list = new List<T>();
-			Count = _list.Count;
 		}
+		/// <summary>Adds the specified value.</summary>
+		/// <param name="value">The value.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public bool Add(T value)
 		{
 			if (value == null) return false;
@@ -20,6 +26,12 @@ namespace Model.Models
 			return true;
 		}
 
+		/// <summary>Replaces at.</summary>
+		/// <param name="index">The index.</param>
+		/// <param name="value">The value.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public bool ReplaceAt(int index, T value)
 		{
 			if (!CheckIndex(index)) return false;
@@ -27,14 +39,26 @@ namespace Model.Models
 			return true;
 		}
 
+		/// <summary>Checks the index.</summary>
+		/// <param name="index">The index.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public bool CheckIndex(int index)
 			=> index < _list.Count && index >= 0;
 
+		/// <summary>Removes all.</summary>
+		/// <param name="value">The value.</param>
 		public void RemoveAll(T value)
 		{
 			_list.Clear();
 		}
 
+		/// <summary>Removes at.</summary>
+		/// <param name="index">The index.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public bool RemoveAt(int index)
 		{
 			if (!CheckIndex(index)) return false;
@@ -42,23 +66,40 @@ namespace Model.Models
 			return true;
 		}
 
+		/// <summary>Gets at.</summary>
+		/// <param name="index">The index.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public T GetAt(int index)
 		{
 			return !CheckIndex(index) ? default : _list[index];
 		}
 
+		/// <summary>Gets all.</summary>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public List<T> GetAll()
 		{
 			return _list;
 		}
+		/// <summary>Converts to stringarray.</summary>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public string[] ToStringArray()
 		{
-			throw new System.NotImplementedException();
+			return _list.Select(item => item.ToString()).ToArray();
 		}
 
+		/// <summary>Converts to stringlist.</summary>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public List<string> ToStringList()
 		{
-			throw new System.NotImplementedException();
+			return _list.Select(item => item.ToString()).ToList();
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using controller.AnimalManager;
 using Model.Interfaces;
+using Model.Models;
 using Model.Models.AnimalModel;
 using Model.Models.MammalsModel;
 using Model.Models.ReptilesModel;
@@ -22,6 +23,8 @@ namespace assignment1
 
 		private IAnimal _animal;
 		private AnimalManager _animalManager;
+		private readonly FoodManager _foodManager;
+
 
 		/// <summary>Initializes a new instance of the <see cref="Form1" /> class.</summary>
 		public Form1()
@@ -29,6 +32,7 @@ namespace assignment1
 			InitializeComponent();
 			InitializeGUI();
 			_animalManager = new AnimalManager();
+			_foodManager = new FoodManager();
 		}
 
 		/// <summary>Initializes the GUI.</summary>
@@ -429,7 +433,7 @@ namespace assignment1
 					}
 					else
 					{
-						AnimalName.Text = ((Cat) selectedAnimal).Name;
+						AnimalName.Text = ((Cat)selectedAnimal).Name;
 						Age.Text = ((Cat)selectedAnimal).Age.ToString();
 						cmbCuteness.SelectedIndex = (int)((Cat)selectedAnimal).Cuteness;
 						txtSpec1.Text = ((Cat)selectedAnimal).NumOfTeeth.ToString();
@@ -466,6 +470,9 @@ namespace assignment1
 			}
 		}
 
+		/// <summary>Handles the Click event of the RemoveBtm control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void RemoveBtm_Click(object sender, EventArgs e)
 		{
 			var index = animalList.FocusedItem.Index;
@@ -480,28 +487,39 @@ namespace assignment1
 			}
 		}
 
-		private void ChangeBtm_Click(object sender, EventArgs e)
+		/// <summary>Handles the Click event of the foodItemsBtm control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+		private void foodItemsBtm_Click(object sender, EventArgs e)
 		{
-			var index = animalList.FocusedItem.Index;
-			//if (index >= 0 && animalList.FocusedItem != null)
-			//{
+			var recipeForm = new FoodItemForm();
+			if (recipeForm.ShowDialog() == DialogResult.OK)
+			{
+				if (recipeForm.FoodItem.Ingredients == null || recipeForm.FoodItem.Name == null) return;
+				listBox.Items.Clear();
+				_foodManager.Add(recipeForm.FoodItem);
+				foreach (var recipe in _foodManager.ToStringList())
+					listBox.Items.Add(recipe);
+			}
+		}
 
-			//	contactForm.ContactData = customerManager.GetCustomer(index).Contact;
-			//	if (contactForm.ShowDialog() == DialogResult.OK)
-			//	{
-			//		if (contactForm.IsCorrect)
-			//		{
-			//			Customer edited = customerManager.GetCustomer(index);
-			//			customerManager.ChangeCustomer(edited, index);
-			//			UpdateCustomerList();
-			//		}
-			//	}
+		/// <summary>Handles the Click event of the connectBtm control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+		private void connectBtm_Click(object sender, EventArgs e)
+		{
+			var animalIndex = animalList.FocusedItem.Index;
+			var food = listBox.SelectedIndex;
+			if ((animalIndex >= 0 && animalList.FocusedItem != null) && (food >= 0 && listBox.SelectedItem != null))
+			{
+				var animal = _animalManager.GetAt(animalIndex);
+				var selectedFood = _foodManager.GetAt(food);
+				if (!_foodManager.AnimalFood.ContainsKey(animal.Id))
+				{
+					_foodManager.AnimalFood.Add(animal.Id, selectedFood);
+				}
 
-			//}
-			//else
-			//{
-			//	MessageBox.Show("Select an item to change!");
-			//}
+			}
 		}
 	}
 }

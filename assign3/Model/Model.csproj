@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IListManager.cs" />
     <Compile Include="Models\FoodItem.cs" />
+    <Compile Include="Models\FoodManager.cs" />
     <Compile Include="Models\FoodSchedule.cs" />
     <Compile Include="Interfaces\IAnimal.cs" />
     <Compile Include="Models\AnimalModel\Animal.cs" />
