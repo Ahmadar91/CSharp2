@@ -25,7 +25,7 @@ namespace Model.Models.ReptilesModel
 		public override string ToString()
 		{
 			var str = base.ToString();
-			str += $"PoisonLevel {PoisonLevel}";
+			str += $"PoisonLevel: {PoisonLevel}";
 			return str;
 		}
 		/// <summary>Sets the food schedule.</summary>

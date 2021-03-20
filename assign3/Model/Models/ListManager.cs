@@ -8,7 +8,6 @@ namespace Model.Models
 	{
 		private readonly List<T> _list;
 		public int Count => _list.Count;
-		public List<T> List => _list;
 		/// <summary>Initializes a new instance of the <see cref="ListManager{T}" /> class.</summary>
 		public ListManager()
 		{
@@ -76,14 +75,6 @@ namespace Model.Models
 			return !CheckIndex(index) ? default : _list[index];
 		}
 
-		/// <summary>Gets all.</summary>
-		/// <returns>
-		///   <br />
-		/// </returns>
-		public List<T> GetAll()
-		{
-			return _list;
-		}
 		/// <summary>Converts to stringarray.</summary>
 		/// <returns>
 		///   <br />

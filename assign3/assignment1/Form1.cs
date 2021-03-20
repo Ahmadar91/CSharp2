@@ -90,7 +90,10 @@ namespace assignment1
 			animalInfo.Text = animal.ToString();
 			_animalManager.Add(animal);
 			animalList.Items.Clear();
-			animalList.Items.AddRange(_animalManager.GetAnimalListInfoStrings());
+			foreach (var animalInfo in _animalManager.ToStringArray())
+			{
+				animalList.Items.Add(animalInfo);
+			}
 			Omni.Text = animal.GetFoodSchedule().EaterType.ToString();
 			foodList.Items.Clear();
 			foodList.Items.AddRange(animal.GetFoodSchedule().GetFoodListInfoStrings());
@@ -514,11 +517,7 @@ namespace assignment1
 			{
 				var animal = _animalManager.GetAt(animalIndex);
 				var selectedFood = _foodManager.GetAt(food);
-				if (!_foodManager.AnimalFood.ContainsKey(animal.Id))
-				{
-					_foodManager.AnimalFood.Add(animal.Id, selectedFood);
-				}
-
+				var result = _foodManager.ConnectFoodAndAnimal(animal.Id, selectedFood);
 			}
 		}
 	}

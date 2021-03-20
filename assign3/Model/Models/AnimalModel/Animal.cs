@@ -48,9 +48,9 @@ namespace Model.Models.AnimalModel
 		/// <returns>A <see cref="System.String" /> that represents this instance.</returns>
 		public override string ToString()
 		{
-			string strOut = $"{"ID",-15} {Id,6}\n{"Name:",-15} {Name,6}\n {"Age",-15} {Age,6}\n";
+			string strOut = $"{"ID:",-5} {Id,-48}\n{"Name:",-2} {Name,-10}\n {"Age:",-2} {Age,-10}\n";
 
-			strOut += $"{"Gender:",-15} {Gender,6}\n{"Category:",-15} {Category,6}\n";
+			strOut += $"{"Gender:",-2} {Gender,-10}\n{"Category:",-2} {Category,-10}\n";
 
 			return strOut;
 		}

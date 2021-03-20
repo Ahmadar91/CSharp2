@@ -37,7 +37,7 @@ namespace Model.Models.MammalsModel
 		public override string ToString()
 		{
 			var str = base.ToString();
-			str += $"Breed {Breed}";
+			str += $"Breed: {Breed}";
 			return str;
 		}
 

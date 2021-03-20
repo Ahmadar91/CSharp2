@@ -18,22 +18,5 @@ namespace controller.AnimalManager
 		{
 			StartId = Guid.NewGuid().ToString();
 		}
-		/// <summary>Gets the animal list information strings.</summary>
-		/// <returns>
-		///   <br />
-		/// </returns>
-		public ListViewItem[] GetAnimalListInfoStrings()
-		{
-			var listViewItems = new List<ListViewItem>();
-			foreach (var animal in GetAll())
-			{
-				ListViewItem item = new ListViewItem(animal.Id);
-				item.SubItems.Add(animal.Name);
-				item.SubItems.Add(animal.Age.ToString());
-				item.SubItems.Add(animal.Gender.ToString());
-				listViewItems.Add(item);
-			}
-			return listViewItems.ToArray();
-		}
 	}
 }

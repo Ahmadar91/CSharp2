@@ -34,7 +34,7 @@ namespace Model.Models.MammalsModel
 		public override string ToString()
 		{
 			var str = base.ToString();
-			str += $"{"Tail length(CM):",-15} {TailLength,6}\n{"No.Of teeth:",-15} {NumOfTeeth,6}\n";
+			str += $"{"Tail length(CM):",-2} {TailLength,-10}\n{"No.Of teeth:",-2} {NumOfTeeth,-10}\n";
 			return str;
 		}
 

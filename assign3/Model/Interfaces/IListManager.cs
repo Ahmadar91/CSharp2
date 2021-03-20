@@ -12,6 +12,5 @@ namespace Model.Interfaces
 		T GetAt(int index);
 		string[] ToStringArray();
 		List<string> ToStringList();
-		List<T> GetAll();
 	}
 }

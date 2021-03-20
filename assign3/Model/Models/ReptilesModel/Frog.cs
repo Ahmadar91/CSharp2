@@ -24,7 +24,7 @@ namespace Model.Models.ReptilesModel
 		public override string ToString()
 		{
 			var str = base.ToString();
-			str += $"Color {Color}";
+			str += $"Color: {Color}";
 			return str;
 		}
 
