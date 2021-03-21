@@ -19,10 +19,10 @@ namespace assignment1
 		/// <value>The species.</value>
 		private string Species { get; set; }
 
-		private Category _Category { get; set; }
+		private Category Category { get; set; }
 
 		private IAnimal _animal;
-		private AnimalManager _animalManager;
+		private readonly AnimalManager _animalManager;
 		private readonly FoodManager _foodManager;
 
 
@@ -105,10 +105,10 @@ namespace assignment1
 		/// </returns>
 		private Animal ReadInput()
 		{
-			_Category = ListAll.Checked ? ReadSpecies() : ReadCategory();
+			Category = ListAll.Checked ? ReadSpecies() : ReadCategory();
 
 			Animal animal = null;
-			switch (_Category)
+			switch (Category)
 			{
 				case Category.Mammal:
 					animal = CreateMammal();
@@ -162,13 +162,13 @@ namespace assignment1
 			{
 				case (ReptileSpecies)0:
 				case (ReptileSpecies)2:
-					_animal = new Frog(canLiveOnLand, weight, _Category);
+					_animal = new Frog(canLiveOnLand, weight, Category);
 					((Frog)_animal).Color = txtBreed.Text;
 					break;
 
 				case (ReptileSpecies)1:
 				case (ReptileSpecies)3:
-					_animal = new Snake(canLiveOnLand, weight, _Category);
+					_animal = new Snake(canLiveOnLand, weight, Category);
 					((Snake)_animal).PoisonLevel = (PoisonLevel)cmbCuteness.SelectedIndex;
 					break;
 			}
@@ -197,12 +197,12 @@ namespace assignment1
 			switch (species)
 			{
 				case MammalSpecies.Dog:
-					_animal = new Dog(numOfTeeth, tailLength, _Category, (SkinType)skin);
+					_animal = new Dog(numOfTeeth, tailLength, Category, (SkinType)skin);
 					((Dog)_animal).Breed = txtBreed.Text;
 					break;
 
 				case MammalSpecies.Cat:
-					_animal = new Cat(numOfTeeth, tailLength, _Category, (SkinType)skin);
+					_animal = new Cat(numOfTeeth, tailLength, Category, (SkinType)skin);
 					((Cat)_animal).Cuteness = (Cuteness)cmbCuteness.SelectedIndex;
 					break;
 			}
