@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAnimal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Animal xsi:type="Dog">
+    <Id>3af0b21d-748a-4d99-a439-2bf5d31683ce</Id>
+    <Name>12</Name>
+    <Age>12</Age>
+    <Gender>Unknown</Gender>
+    <IsPredator>false</IsPredator>
+    <Category>Mammal</Category>
+    <SkinType>Fur</SkinType>
+    <NumOfTeeth>12</NumOfTeeth>
+    <TailLength>12</TailLength>
+    <Size>Large</Size>
+    <Breed>12</Breed>
+    <FoodSchedule>
+      <EaterType>Omnivorous</EaterType>
+      <FoodList>
+        <string>Morning: Flakes and Milk</string>
+        <string>Lunch: bones and Flakes</string>
+        <string>Evening: any meat dish</string>
+      </FoodList>
+    </FoodSchedule>
+  </Animal>
+</ArrayOfAnimal>
