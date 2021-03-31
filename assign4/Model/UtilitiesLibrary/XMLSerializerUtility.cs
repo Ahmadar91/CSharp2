@@ -6,6 +6,13 @@ namespace Model.UtilitiesLibrary
 {
 	public class XMLSerializerUtility
 	{
+		/// <summary>Serializes the specified object.</summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="obj">The object.</param>
+		/// <param name="fileName">Name of the file.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public static bool Serialize<T>(T obj, string fileName)
 		{
 			using (var writer = new StreamWriter(fileName))
@@ -16,6 +23,12 @@ namespace Model.UtilitiesLibrary
 			}
 			return true;
 		}
+		/// <summary>Deserializes the specified file path.</summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="filePath">The file path.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public static T Deserialize<T>(string filePath)
 		{
 			object result = null;

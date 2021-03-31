@@ -96,6 +96,11 @@ namespace Model.Models
 			return _list.Select(item => item.ToString()).ToList();
 		}
 
+		/// <summary>Binaries the serializer.</summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public bool BinarySerializer(string fileName)
 		{
 			if (BinSerializerUtility.Serialize(_list, fileName))
@@ -105,6 +110,11 @@ namespace Model.Models
 			return false;
 		}
 
+		/// <summary>Binaries the de serializer.</summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public bool BinaryDeSerializer(string fileName)
 		{
 			var results = BinSerializerUtility.Deserialize<T>(fileName);
@@ -116,10 +126,20 @@ namespace Model.Models
 			return false;
 		}
 
+		/// <summary>XMLs the serialize.</summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public bool XmlSerialize(string fileName)
 		{
 			return XMLSerializerUtility.Serialize(_list, fileName);
 		}
+		/// <summary>XMLs the deserialize.</summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public bool XmlDeserialize(string fileName)
 		{
 			var results = XMLSerializerUtility.Deserialize<List<T>>(fileName);
