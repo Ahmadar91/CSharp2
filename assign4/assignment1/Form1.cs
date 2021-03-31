@@ -542,6 +542,9 @@ namespace assignment1
 			}
 		}
 
+		/// <summary>Handles the Click event of the newToolStripMenuItem control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void newToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var dialogResult = MessageBox.Show(@"Are you sure you want to exit without saving the current session?", @"Exit", MessageBoxButtons.YesNo);
@@ -551,6 +554,7 @@ namespace assignment1
 			}
 		}
 
+		/// <summary>Resets this instance.</summary>
 		private void Reset()
 		{
 			animalList.Clear();
@@ -568,6 +572,9 @@ namespace assignment1
 			_foodManager = new FoodManager();
 		}
 
+		/// <summary>Handles the Click event of the saveToolStripMenuItem control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void saveToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (string.IsNullOrEmpty(FileName))
@@ -589,6 +596,9 @@ namespace assignment1
 		}
 
 
+		/// <summary>Handles the Click event of the saveAsToolStripMenuItem control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (Filter == @"Text Files | *.txt")
@@ -600,6 +610,9 @@ namespace assignment1
 				binaryFileToolStripMenuItem1.PerformClick();
 			}
 		}
+		/// <summary>Handles the Click event of the textFileToolStripMenuItem control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void textFileToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			try
@@ -627,6 +640,9 @@ namespace assignment1
 
 		}
 
+		/// <summary>Handles the Click event of the binaryFileToolStripMenuItem control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void binaryFileToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			try
@@ -650,6 +666,7 @@ namespace assignment1
 
 		}
 
+		/// <summary>Updates the ListBox.</summary>
 		private void UpdateListBox()
 		{
 			foodList.Items.Clear();
@@ -666,11 +683,17 @@ namespace assignment1
 		}
 
 
+		/// <summary>Handles the Click event of the exitToolStripMenuItem control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Close();
 		}
 
+		/// <summary>Handles the Click event of the textFileToolStripMenuItem1 control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void textFileToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			try
@@ -693,6 +716,9 @@ namespace assignment1
 			}
 		}
 
+		/// <summary>Handles the Click event of the binaryFileToolStripMenuItem1 control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void binaryFileToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			try
@@ -714,6 +740,9 @@ namespace assignment1
 			}
 		}
 
+		/// <summary>Handles the 1 event of the newToolStripMenuItem_Click control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void newToolStripMenuItem_Click_1(object sender, EventArgs e)
 		{
 			var dialogResult = MessageBox.Show(@"Are you sure you want to exit without saving the current session?", @"Exit", MessageBoxButtons.YesNo);
@@ -723,6 +752,9 @@ namespace assignment1
 			}
 		}
 
+		/// <summary>Handles the Click event of the importToolStripMenuItem control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void importToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			try
@@ -752,6 +784,9 @@ namespace assignment1
 
 
 
+		/// <summary>Handles the Click event of the exportToolStripMenuItem control.</summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
 		private void exportToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			try
