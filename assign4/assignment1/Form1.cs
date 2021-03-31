@@ -430,39 +430,63 @@ namespace assignment1
 						txtSpec1.Text = dog.NumOfTeeth.ToString();
 						txtSpec2.Text = dog.TailLength.ToString(CultureInfo.InvariantCulture);
 						cmbGender.SelectedIndex = (int)dog.Gender;
+						speciesSpec.Text = "Dog Specifications";
+						lblSpeciesSpec1.Text = "Breed";
+						cmbCuteness.Visible = false;
+						txtBreed.Visible = true;
 					}
 					else
 					{
 						AnimalName.Text = ((Cat)selectedAnimal).Name;
 						Age.Text = ((Cat)selectedAnimal).Age.ToString();
-						cmbCuteness.SelectedIndex = (int)((Cat)selectedAnimal).Cuteness;
+						var cuteness = (int)((Cat)selectedAnimal).Cuteness;
+						cmbCuteness.Items.Clear();
+						cmbCuteness.Items.AddRange(Enum.GetNames(typeof(Cuteness)));
+						cmbCuteness.SelectedIndex = cuteness;
 						txtSpec1.Text = ((Cat)selectedAnimal).NumOfTeeth.ToString();
 						txtSpec2.Text = ((Cat)selectedAnimal).TailLength.ToString(CultureInfo.InvariantCulture);
 						cmbGender.SelectedIndex = (int)((Cat)selectedAnimal).Gender;
+						speciesSpec.Text = "Cat Specifications";
+						lblSpeciesSpec1.Text = "Cuteness";
+						cmbCuteness.Visible = true;
+						txtBreed.Visible = false;
 
 					}
 
 				}
 				if (selectedAnimal.Category == Category.Reptile)
 				{
-
-					if (((Frog)selectedAnimal).Color != null)
+					if (selectedAnimal is Frog frog)
 					{
-						AnimalName.Text = ((Frog)selectedAnimal).Name;
-						Age.Text = ((Frog)selectedAnimal).Age.ToString();
-						txtBreed.Text = ((Frog)selectedAnimal).Color;
-						cmbBool.SelectedIndex = ((Frog)selectedAnimal).CanLiveOnBothWaterAndLand ? 1 : 0;
-						txtSpec2.Text = ((Frog)selectedAnimal).Weight.ToString(CultureInfo.InvariantCulture);
-						cmbGender.SelectedIndex = (int)((Frog)selectedAnimal).Gender;
+						if (frog.Color != null)
+						{
+							txtBreed.Visible = true;
+							AnimalName.Text = frog.Name;
+							Age.Text = frog.Age.ToString();
+							txtBreed.Text = frog.Color;
+							cmbBool.SelectedIndex = frog.CanLiveOnBothWaterAndLand ? 1 : 0;
+							txtSpec2.Text = frog.Weight.ToString(CultureInfo.InvariantCulture);
+							cmbGender.SelectedIndex = (int)frog.Gender;
+							speciesSpec.Text = "Frog Specifications";
+							lblSpeciesSpec1.Text = "Color";
+							cmbCuteness.Visible = false;
+						}
 					}
 					else
 					{
 						AnimalName.Text = ((Snake)selectedAnimal).Name;
 						Age.Text = ((Snake)selectedAnimal).Age.ToString();
-						cmbCuteness.SelectedIndex = (int)((Snake)selectedAnimal).PoisonLevel;
+						var poisonLevel = (int)((Snake)selectedAnimal).PoisonLevel;
+						cmbCuteness.Items.Clear();
+						cmbCuteness.Items.AddRange(Enum.GetNames(typeof(PoisonLevel)));
+						cmbCuteness.SelectedIndex = poisonLevel;
 						cmbBool.SelectedIndex = ((Snake)selectedAnimal).CanLiveOnBothWaterAndLand ? 1 : 0;
 						txtSpec2.Text = ((Snake)selectedAnimal).Weight.ToString(CultureInfo.InvariantCulture);
 						cmbGender.SelectedIndex = (int)((Snake)selectedAnimal).Gender;
+						speciesSpec.Text = "Snake Specifications";
+						lblSpeciesSpec1.Text = "PoisonLevel";
+						cmbCuteness.Visible = true;
+						txtBreed.Visible = false;
 
 					}
 				}
@@ -529,7 +553,16 @@ namespace assignment1
 
 		private void Reset()
 		{
-			MessageBox.Show("Reset");
+			animalList.Clear();
+			speciesList.Items.Clear();
+			categoryList.Items.Clear();
+			listBox.Items.Clear();
+			foodList.Items.Clear();
+			Age.Text = "";
+			AnimalName.Text = "";
+			txtSpec1.Text = "";
+			txtSpec2.Text = "";
+			txtBreed.Text = "";
 			InitializeGUI();
 			_animalManager = new AnimalManager();
 			_foodManager = new FoodManager();
@@ -541,18 +574,31 @@ namespace assignment1
 			{
 				saveAsToolStripMenuItem_Click(sender, e);
 			}
-			else SaveToFile();
+			else
+			{
+				if (Filter == @"Text Files | *.txt")
+				{
+					textFileToolStripMenuItem1.PerformClick();
+				}
+				else
+				{
+					binaryFileToolStripMenuItem1.PerformClick();
+				}
+			}
+
 		}
 
-		private void SaveToFile()
-		{
-
-
-		}
 
 		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-
+			if (Filter == @"Text Files | *.txt")
+			{
+				textFileToolStripMenuItem1.PerformClick();
+			}
+			else
+			{
+				binaryFileToolStripMenuItem1.PerformClick();
+			}
 		}
 		private void textFileToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -570,9 +616,8 @@ namespace assignment1
 
 				if (!string.IsNullOrEmpty(FileName))
 				{
-					//_animalManager.XmlSerialize(FileName);
-					//_FillAnimalsList();
-					//_isText = true;
+					_animalManager.XmlDeserialize(FileName);
+					UpdateListBox();
 				}
 			}
 			catch (Exception exception)
@@ -593,16 +638,9 @@ namespace assignment1
 				openFileDialog1.Filter = Filter;
 				if (openFileDialog1.ShowDialog() == DialogResult.OK)
 				{
-					FileName = openFileDialog1.SafeFileName;
-					var msg = ReadFile();
-					if (!string.IsNullOrEmpty(msg))
-					{
-						MessageBox.Show(msg);
-					}
-					else
-					{
-						UpdateListBox();
-					}
+					FileName = openFileDialog1.FileName;
+					_animalManager.BinaryDeSerializer(FileName);
+					UpdateListBox();
 				}
 			}
 			catch (Exception exception)
@@ -614,17 +652,23 @@ namespace assignment1
 
 		private void UpdateListBox()
 		{
-			throw new NotImplementedException();
+			foodList.Items.Clear();
+			animalList.Items.Clear();
+			foreach (var animalInfo in _animalManager.ToStringArray())
+			{
+				animalList.Items.Add(animalInfo);
+			}
+			listBox.Items.Clear();
+			foreach (var foodInfo in _foodManager.ToStringArray())
+			{
+				listBox.Items.Add(foodInfo);
+			}
 		}
 
-		private string ReadFile()
-		{
-			throw new NotImplementedException();
-		}
 
 		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			this.Close();
+			Close();
 		}
 
 		private void textFileToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -638,6 +682,7 @@ namespace assignment1
 				saveFileDialog1.Filter = Filter;
 				if (saveFileDialog1.ShowDialog() == DialogResult.OK)
 				{
+					FileName = saveFileDialog1.FileName;
 					FileName = saveFileDialog1.FileName;
 					_animalManager.XmlSerialize(FileName);
 				}
@@ -668,5 +713,66 @@ namespace assignment1
 				MessageBox.Show(exception.ToString(), @"Error!");
 			}
 		}
+
+		private void newToolStripMenuItem_Click_1(object sender, EventArgs e)
+		{
+			var dialogResult = MessageBox.Show(@"Are you sure you want to exit without saving the current session?", @"Exit", MessageBoxButtons.YesNo);
+			if (dialogResult == DialogResult.Yes)
+			{
+				Reset();
+			}
+		}
+
+		private void importToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				Filter = @"XML-Files | *.xml";
+				var startup = Application.StartupPath;
+				var newPath = Path.GetFullPath(Path.Combine(startup, @"..\..\Demo"));
+				openFileDialog1.InitialDirectory = newPath;
+				openFileDialog1.Filter = Filter;
+				if (openFileDialog1.ShowDialog() == DialogResult.OK)
+				{
+					FileName = openFileDialog1.FileName;
+				}
+
+				if (!string.IsNullOrEmpty(FileName))
+				{
+					_foodManager.XmlDeserialize(FileName);
+					UpdateListBox();
+				}
+			}
+			catch (Exception exception)
+			{
+				MessageBox.Show(exception.ToString(), @"Error!");
+			}
+
+		}
+
+
+
+		private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				Filter = @"XML-Files | *.xml";
+				var startup = Application.StartupPath;
+				var newPath = Path.GetFullPath(Path.Combine(startup, @"..\..\Demo"));
+				saveFileDialog1.InitialDirectory = newPath;
+				saveFileDialog1.Filter = Filter;
+				if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+				{
+					FileName = saveFileDialog1.FileName;
+					FileName = saveFileDialog1.FileName;
+					_foodManager.XmlSerialize(FileName);
+				}
+			}
+			catch (Exception exception)
+			{
+				MessageBox.Show(exception.ToString(), @"Error!");
+			}
+		}
+
 	}
 }

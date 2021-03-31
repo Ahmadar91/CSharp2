@@ -1,5 +1,6 @@
 ﻿using Model.Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -40,9 +41,9 @@ namespace assignment1
 		/// <returns>
 		///   <br />
 		/// </returns>
-		private ListManager<string> GetItems()
+		private List<string> GetItems()
 		{
-			var listManager = new ListManager<string>();
+			var listManager = new List<string>();
 			var items = listBox.Items.Cast<string>();
 			foreach (var item in items)
 			{

@@ -20,11 +20,6 @@ namespace Model.UtilitiesLibrary
 		public static List<T> Deserialize<T>(string fileName)
 		{
 			object obj = null;
-
-			if (!File.Exists(fileName))
-			{
-				throw new FileNotFoundException("File Does Not Exist", fileName);
-			}
 			using (var fileStream = new FileStream(fileName, FileMode.Open))
 			{
 				var b = new BinaryFormatter();

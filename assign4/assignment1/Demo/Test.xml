@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfFoodItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FoodItem>
+    <Name>Chicken</Name>
+    <Ingredients>
+      <string>Chicken</string>
+      <string>Spcies</string>
+    </Ingredients>
+  </FoodItem>
+  <FoodItem>
+    <Name>Toona</Name>
+    <Ingredients>
+      <string>Toona</string>
+    </Ingredients>
+  </FoodItem>
+  <FoodItem>
+    <Name>Ribs</Name>
+    <Ingredients>
+      <string>Ribs</string>
+    </Ingredients>
+  </FoodItem>
+</ArrayOfFoodItem>

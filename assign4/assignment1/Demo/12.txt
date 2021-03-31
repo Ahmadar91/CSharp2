@@ -1,1 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAnimal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Animal xsi:type="Cat">
+    <Id>a0e542bc-f415-47df-afb6-34e33b1b15a2</Id>
+    <Name>Cat</Name>
+    <Age>7</Age>
+    <Gender>Unknown</Gender>
+    <IsPredator>false</IsPredator>
+    <Category>Mammal</Category>
+    <SkinType>Fur</SkinType>
+    <NumOfTeeth>7</NumOfTeeth>
+    <TailLength>7</TailLength>
+    <Cuteness>VeryCute</Cuteness>
+    <FoodSchedule>
+      <EaterType>Carnivore</EaterType>
+      <FoodList>
+        <string>Morning: Milk</string>
+        <string>Lunch: Tuna</string>
+        <string>Evening: Cat Treats</string>
+      </FoodList>
+    </FoodSchedule>
+  </Animal>
+  <Animal xsi:type="Dog">
+    <Id>9d0f6446-3bd2-4ea9-a21c-35c643fcde31</Id>
+    <Name>Dog</Name>
+    <Age>7</Age>
+    <Gender>Unknown</Gender>
+    <IsPredator>false</IsPredator>
+    <Category>Mammal</Category>
+    <SkinType>Fur</SkinType>
+    <NumOfTeeth>7</NumOfTeeth>
+    <TailLength>7</TailLength>
+    <Size>Large</Size>
+    <Breed>BReed</Breed>
+    <FoodSchedule>
+      <EaterType>Omnivorous</EaterType>
+      <FoodList>
+        <string>Morning: Flakes and Milk</string>
+        <string>Lunch: bones and Flakes</string>
+        <string>Evening: any meat dish</string>
+      </FoodList>
+    </FoodSchedule>
+  </Animal>
+</ArrayOfAnimal>

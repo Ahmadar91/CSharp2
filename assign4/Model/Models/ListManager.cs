@@ -1,10 +1,12 @@
-﻿using Model.Interfaces;
+﻿using System;
+using Model.Interfaces;
 using Model.UtilitiesLibrary;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Model.Models
 {
+
 	public class ListManager<T> : IListManager<T>
 	{
 		private List<T> _list;
@@ -105,8 +107,10 @@ namespace Model.Models
 
 		public bool BinaryDeSerializer(string fileName)
 		{
-			if (BinSerializerUtility.Deserialize<T>(fileName).Any())
+			var results = BinSerializerUtility.Deserialize<T>(fileName);
+			if (results.Any())
 			{
+				_list = results;
 				return true;
 			}
 			return false;

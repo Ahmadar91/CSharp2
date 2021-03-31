@@ -1,23 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfAnimal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Animal xsi:type="Dog">
-    <Id>3af0b21d-748a-4d99-a439-2bf5d31683ce</Id>
-    <Name>12</Name>
+    <Id>46cfd74d-8f68-4131-808d-e0c006d8c968</Id>
+    <Name>Dog</Name>
     <Age>12</Age>
     <Gender>Unknown</Gender>
     <IsPredator>false</IsPredator>
     <Category>Mammal</Category>
     <SkinType>Fur</SkinType>
-    <NumOfTeeth>12</NumOfTeeth>
-    <TailLength>12</TailLength>
+    <NumOfTeeth>55</NumOfTeeth>
+    <TailLength>2</TailLength>
     <Size>Large</Size>
-    <Breed>12</Breed>
+    <Breed>BullDog</Breed>
     <FoodSchedule>
       <EaterType>Omnivorous</EaterType>
       <FoodList>
         <string>Morning: Flakes and Milk</string>
         <string>Lunch: bones and Flakes</string>
         <string>Evening: any meat dish</string>
+      </FoodList>
+    </FoodSchedule>
+  </Animal>
+  <Animal xsi:type="Cat">
+    <Id>48fecfd5-8401-4405-bc37-961b4434fc1a</Id>
+    <Name>Cat</Name>
+    <Age>7</Age>
+    <Gender>Unknown</Gender>
+    <IsPredator>false</IsPredator>
+    <Category>Mammal</Category>
+    <SkinType>Fur</SkinType>
+    <NumOfTeeth>7</NumOfTeeth>
+    <TailLength>2</TailLength>
+    <Cuteness>VeryCute</Cuteness>
+    <FoodSchedule>
+      <EaterType>Carnivore</EaterType>
+      <FoodList>
+        <string>Morning: Milk</string>
+        <string>Lunch: Tuna</string>
+        <string>Evening: Cat Treats</string>
+      </FoodList>
+    </FoodSchedule>
+  </Animal>
+  <Animal xsi:type="Snake">
+    <Id>c79d4ce7-4067-4c5e-b5e3-978ec9b6e730</Id>
+    <Name>Cat</Name>
+    <Age>3</Age>
+    <Gender>Unknown</Gender>
+    <IsPredator>false</IsPredator>
+    <Category>Reptile</Category>
+    <CanLiveOnBothWaterAndLand>true</CanLiveOnBothWaterAndLand>
+    <Weight>5</Weight>
+    <PoisonLevel>Normal</PoisonLevel>
+    <FoodSchedule>
+      <EaterType>Omnivorous</EaterType>
+      <FoodList>
+        <string>Morning: Meat</string>
+        <string>Lunch: Frogs</string>
+        <string>Evening: Insects</string>
+      </FoodList>
+    </FoodSchedule>
+  </Animal>
+  <Animal xsi:type="Frog">
+    <Id>fc40e3a4-80a2-404b-aa67-124c98a990f1</Id>
+    <Name>Cat</Name>
+    <Age>1</Age>
+    <Gender>Unknown</Gender>
+    <IsPredator>false</IsPredator>
+    <Category>Reptile</Category>
+    <CanLiveOnBothWaterAndLand>true</CanLiveOnBothWaterAndLand>
+    <Weight>4</Weight>
+    <Color>Green</Color>
+    <FoodSchedule>
+      <EaterType>Omnivorous</EaterType>
+      <FoodList>
+        <string>Morning: Bugs</string>
+        <string>Lunch: Bugs</string>
+        <string>Evening: Bugs</string>
       </FoodList>
     </FoodSchedule>
   </Animal>
