@@ -117,7 +117,7 @@ namespace Model.Models
 		/// </returns>
 		public bool BinaryDeSerializer(string fileName)
 		{
-			var results = BinSerializerUtility.Deserialize<T>(fileName);
+			var results = BinSerializerUtility.Deserialize<List<T>>(fileName);
 			if (results.Any())
 			{
 				_list = results;

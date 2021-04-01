@@ -638,6 +638,7 @@ namespace assignment1
 				MessageBox.Show(exception.ToString(), @"Error!");
 			}
 
+			FileName = string.Empty;
 		}
 
 		/// <summary>Handles the Click event of the binaryFileToolStripMenuItem control.</summary>
@@ -663,7 +664,7 @@ namespace assignment1
 			{
 				MessageBox.Show(exception.ToString(), @"Error!");
 			}
-
+			FileName = string.Empty;
 		}
 
 		/// <summary>Updates the ListBox.</summary>
@@ -714,6 +715,7 @@ namespace assignment1
 			{
 				MessageBox.Show(exception.ToString(), @"Error!");
 			}
+			FileName = string.Empty;
 		}
 
 		/// <summary>Handles the Click event of the binaryFileToolStripMenuItem1 control.</summary>
@@ -738,6 +740,7 @@ namespace assignment1
 			{
 				MessageBox.Show(exception.ToString(), @"Error!");
 			}
+			FileName = string.Empty;
 		}
 
 		/// <summary>Handles the 1 event of the newToolStripMenuItem_Click control.</summary>
@@ -779,7 +782,7 @@ namespace assignment1
 			{
 				MessageBox.Show(exception.ToString(), @"Error!");
 			}
-
+			FileName = string.Empty;
 		}
 
 

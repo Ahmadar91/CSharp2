@@ -29,7 +29,7 @@ namespace Model.UtilitiesLibrary
 		/// <returns>
 		///   <br />
 		/// </returns>
-		public static List<T> Deserialize<T>(string fileName)
+		public static T Deserialize<T>(string fileName)
 		{
 			object obj = null;
 			using (var fileStream = new FileStream(fileName, FileMode.Open))
@@ -37,7 +37,7 @@ namespace Model.UtilitiesLibrary
 				var b = new BinaryFormatter();
 				obj = b.Deserialize(fileStream);
 			}
-			return (List<T>)obj;
+			return (T)obj;
 		}
 	}
 }
