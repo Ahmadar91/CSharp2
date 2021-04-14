@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="Control Tower" Height="526.932" Width="903.279">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="897*"/>
+            <ColumnDefinition Width="155*"/>
+        </Grid.ColumnDefinitions>
         <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="Auto"/>
