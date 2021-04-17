@@ -24,5 +24,25 @@ namespace assign5
 		{
 			InitializeComponent();
 		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			if (ReadInput())
+			{
+				FlightWindow flightWindow = new FlightWindow(Box.Text);
+				flightWindow.Show();
+			}
+		}
+		private bool ReadInput()
+		{
+			if (string.IsNullOrEmpty(Box.Text))
+			{
+				MessageBox.Show("Flight code must be inserted");
+				return false;
+			}
+
+			return true;
+		}
+
 	}
 }

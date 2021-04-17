@@ -8,13 +8,9 @@
         Title="Control Tower" Height="526.932" Width="903.279">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="897*"/>
-            <ColumnDefinition Width="155*"/>
-        </Grid.ColumnDefinitions>
-        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*" />
             <ColumnDefinition  Width="20"/>
         </Grid.ColumnDefinitions>
@@ -22,15 +18,30 @@
             <RowDefinition Height="20" />
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
             <RowDefinition Height=" 20"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="1" Grid.Row="1"  FontSize="20" Text="Flight Status" Margin="40,5" />
-        <TextBlock Grid.Column="2" Grid.Row="1"  FontSize="20" Text="Status"  Margin="120,0,0,5"/>
-        <TextBlock Grid.Column="3" Grid.Row="1"  FontSize="20" Text=" Time"  Margin="120,0,0,5"/>
-        <ListView Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="4" BorderBrush="Black" Margin="0,20,0,0">
+        <ListView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" 
+                  BorderThickness="4" BorderBrush="Black" Margin="10,20,0,0" 
+                  Height="328" VerticalAlignment="Top" HorizontalAlignment="Left" Width="839">
+            <ListView.View>
+                <GridView AllowsColumnReorder="true"
+                          ColumnHeaderToolTip="Flights information">
+
+                    <GridViewColumn DisplayMemberBinding=
+                                    "{Binding Path=FirstName}" 
+                                    Header="Flight Code" Width="200"/>
+                    <GridViewColumn DisplayMemberBinding=
+                                    "{Binding Path=LastName}" 
+                                    Header="Status" Width="200"/>
+                    <GridViewColumn DisplayMemberBinding=
+                                    "{Binding Path=EmployeeNumber}" 
+                                    Header="Date and Time" Width="200"/>
+                </GridView>
+            </ListView.View>
         </ListView>
-        <TextBlock Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" FontSize="20" Text="Next Flight:" Margin="0,5" />-->
+        <TextBlock Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" FontSize="15" Text="Next Flight:" Margin="18,40,740.333,-0.333" Grid.ColumnSpan="3" />
+        <TextBox x:Name="Box" Grid.Column="3" Grid.Row="3" Margin="202,31,339.333,43.667"/>
+        <Button Grid.Column="2" Content="Send next Plane to run way" FontSize="15" Grid.Row="3"  Margin="592,31,52.333,0" Grid.ColumnSpan="2" Height="38" VerticalAlignment="Top" RenderTransformOrigin="0.757,2.521" Click="Button_Click" />
     </Grid>
 </Window>
