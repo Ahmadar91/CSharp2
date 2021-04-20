@@ -2,11 +2,6 @@
 
 namespace assign5
 {
-	/// <summary>
-	///   <br />
-	/// </summary>
-	/// <param name="eventArgs">The <see cref="FlightInfoEventArgs" /> instance containing the event data.</param>
-	public delegate void FlightInfoEventHandler(FlightInfoEventArgs eventArgs);
 	public class FlightInfoEventArgs : EventArgs
 	{
 		public string FlightCode { get; set; }
@@ -22,4 +17,9 @@ namespace assign5
 			FlightCode = flightNumber;
 		}
 	}
+	/// <summary>
+	///   <br />
+	/// </summary>
+	/// <param name="eventArgs">The <see cref="FlightInfoEventArgs" /> instance containing the event data.</param>
+	public delegate void FlightInfoEventHandler(FlightInfoEventArgs eventArgs);
 }

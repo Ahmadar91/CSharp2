@@ -18,9 +18,9 @@ namespace assign5
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			if (!ReadInput()) return;
-			FlightInfoEventHandler flightHandler = OnTransmit;
-			var flightWindow = new FlightWindow(Box.Text, flightHandler);
-			flightWindow.Show();
+			FlightInfoEventHandler flightEventHandler = OnTransmit;
+			var fw = new FlightWindow(Box.Text, flightEventHandler);
+			fw.Show();
 		}
 		/// <summary>Raises the <see cref="E:Transmit" /> event.</summary>
 		/// <param name="flightInfo">The <see cref="FlightInfoEventArgs" /> instance containing the event data.</param>
