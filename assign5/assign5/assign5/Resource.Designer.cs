@@ -70,6 +70,15 @@ namespace assign5 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /assign5;component/images/def.jpg.
+        /// </summary>
+        internal static string def {
+            get {
+                return ResourceManager.GetString("def", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /assign5;component/images/fe.png.
         /// </summary>
         internal static string fe {

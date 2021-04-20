@@ -120,6 +120,9 @@
   <data name="br" xml:space="preserve">
     <value>/assign5;component/images/br.jpg</value>
   </data>
+  <data name="def" xml:space="preserve">
+    <value>/assign5;component/images/def.jpg</value>
+  </data>
   <data name="fe" xml:space="preserve">
     <value>/assign5;component/images/fe.png</value>
   </data>
