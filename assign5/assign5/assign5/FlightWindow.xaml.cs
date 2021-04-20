@@ -1,33 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace assign5
 {
-	public partial class FlightWindow : Window
+	public partial class FlightWindow
 	{
-		private readonly FlightInfoEventArgs _eventMessage;
-		public FlightWindow(string code)
+		private readonly FlightInfoEventHandler _flightHandler;
+		private string Code { get; }
+		public FlightWindow(string code, FlightInfoEventHandler flightHandler)
 		{
+			_flightHandler = flightHandler;
 			InitializeComponent();
 			InitializeGUI();
+			Code = code;
 			ChooseImage(code);
-			_eventMessage = new FlightInfoEventArgs(code, "Started");
+			Title = code;
 		}
 
 		private void InitializeGUI()
 		{
-		
 			land.IsEnabled = false;
 			combo.IsEnabled = false;
 			combo.ItemsSource = new List<string> { "30 deg", "Berlin", "Stockholm", "London" };
@@ -37,12 +31,16 @@ namespace assign5
 		{
 			if (code.ToLower().StartsWith("sk"))
 			{
-				Image.Source = new BitmapImage(new Uri($@"pack://application:,,,{Resource.Sas}", UriKind.RelativeOrAbsolute));
+				Image.Source = new BitmapImage(new Uri($@"pack://application:,,,{Resource.sas}", UriKind.RelativeOrAbsolute));
 
 			}
 			else if (code.ToLower().StartsWith("ek"))
 			{
 				Image.Source = new BitmapImage(new Uri($@"pack://application:,,,{Resource.fe}", UriKind.RelativeOrAbsolute));
+			}
+			else if (code.ToLower().StartsWith("ba"))
+			{
+				Image.Source = new BitmapImage(new Uri($@"pack://application:,,,{Resource.br}", UriKind.RelativeOrAbsolute));
 			}
 		}
 
@@ -51,19 +49,17 @@ namespace assign5
 			land.IsEnabled = true;
 			combo.IsEnabled = true;
 			start.IsEnabled = false;
-			_eventMessage.DateTime = DateTime.Now;
+			Event("Started");
 		}
 
-		private void Button_Click_Land(object sender, RoutedEventArgs e)
-		{
-			_eventMessage.Status = $"Landed";
-			_eventMessage.DateTime = DateTime.Now;
-		}
+		private void Button_Click_Land(object sender, RoutedEventArgs e) => Event("Landed");
 
 		private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			_eventMessage.Status = $"Now Heading to {combo.SelectedItem}";
-			_eventMessage.DateTime = DateTime.Now;
+			var route = $"Now Heading to {combo.SelectedItem}";
+			Event(route);
 		}
+		private void Event(string route) => _flightHandler(new FlightInfoEventArgs(Code, route));
+
 	}
 }

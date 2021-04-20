@@ -61,6 +61,15 @@ namespace assign5 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /assign5;component/images/br.jpg.
+        /// </summary>
+        internal static string br {
+            get {
+                return ResourceManager.GetString("br", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /assign5;component/images/fe.png.
         /// </summary>
         internal static string fe {
@@ -72,9 +81,9 @@ namespace assign5 {
         /// <summary>
         ///   Looks up a localized string similar to /assign5;component/images/sas.png.
         /// </summary>
-        internal static string Sas {
+        internal static string sas {
             get {
-                return ResourceManager.GetString("Sas", resourceCulture);
+                return ResourceManager.GetString("sas", resourceCulture);
             }
         }
     }

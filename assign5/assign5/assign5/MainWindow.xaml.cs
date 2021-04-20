@@ -29,10 +29,14 @@ namespace assign5
 		{
 			if (ReadInput())
 			{
-				FlightWindow flightWindow = new FlightWindow(Box.Text);
+				FlightInfoEventHandler flightHandler = OnTransmit;
+				FlightWindow flightWindow = new FlightWindow(Box.Text, flightHandler);
 				flightWindow.Show();
 			}
 		}
+
+		public void OnTransmit(FlightInfoEventArgs e) => listView.Items.Add(e);
+
 		private bool ReadInput()
 		{
 			if (string.IsNullOrEmpty(Box.Text))
@@ -40,7 +44,6 @@ namespace assign5
 				MessageBox.Show("Flight code must be inserted");
 				return false;
 			}
-
 			return true;
 		}
 

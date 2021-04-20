@@ -21,7 +21,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height=" 20"/>
         </Grid.RowDefinitions>
-        <ListView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" 
+        <ListView x:Name="listView" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" 
                   BorderThickness="4" BorderBrush="Black" Margin="10,20,0,0" 
                   Height="328" VerticalAlignment="Top" HorizontalAlignment="Left" Width="839">
             <ListView.View>
@@ -29,13 +29,13 @@
                           ColumnHeaderToolTip="Flights information">
 
                     <GridViewColumn DisplayMemberBinding=
-                                    "{Binding Path=FirstName}" 
+                                    "{Binding FlightCode}" 
                                     Header="Flight Code" Width="200"/>
                     <GridViewColumn DisplayMemberBinding=
-                                    "{Binding Path=LastName}" 
+                                    "{Binding Path=Status}" 
                                     Header="Status" Width="200"/>
                     <GridViewColumn DisplayMemberBinding=
-                                    "{Binding Path=EmployeeNumber}" 
+                                    "{Binding Path=DateTime}" 
                                     Header="Date and Time" Width="200"/>
                 </GridView>
             </ListView.View>
