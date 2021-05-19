@@ -20,3 +20,8 @@ C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\assign6\obj\Debug\net5.0-windows\
 C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\assign6\obj\Debug\net5.0-windows\ref\assign6.dll
 C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\assign6\obj\Debug\net5.0-windows\assign6.pdb
 C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\assign6\obj\Debug\net5.0-windows\assign6.genruntimeconfig.cache
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\assign6\bin\Debug\net5.0-windows\Controller.dll
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\assign6\bin\Debug\net5.0-windows\Model.dll
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\assign6\bin\Debug\net5.0-windows\Controller.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\assign6\bin\Debug\net5.0-windows\Model.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\assign6\obj\Debug\net5.0-windows\assign6.csproj.CopyComplete

@@ -27,7 +27,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height=" 20"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="15" Text="Invoice Number" Margin="667,66,225,722" Grid.ColumnSpan="3" />
+        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="15" Text="Invoice Number" Margin="642,69,238,701" Grid.ColumnSpan="3" />
 
         <ListView x:Name="listView" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" 
                   BorderThickness="4" BorderBrush="Black" Margin="35,231,0,0" 
@@ -37,22 +37,22 @@
                           ColumnHeaderToolTip="Flights information">
 
                     <GridViewColumn DisplayMemberBinding=
-                                    "{Binding FlightCode}" 
+                                    "{Binding Description}" 
                                     Header="Description" Width="280"/>
                     <GridViewColumn DisplayMemberBinding=
-                                    "{Binding Path=Status}" 
+                                    "{Binding Path=Quantity}" 
                                     Header="Quantity" Width="100"/>
                     <GridViewColumn DisplayMemberBinding=
-                                    "{Binding Path=DateTime}" 
+                                    "{Binding Path=UnitPrice}" 
                                     Header="Price" Width="120"/>
                     <GridViewColumn DisplayMemberBinding=
-                                    "{Binding Path=DateTime}" 
+                                    "{Binding Path=Tax}" 
                                     Header="Tax(%)" Width="120"/>
                     <GridViewColumn DisplayMemberBinding=
-                                    "{Binding Path=DateTime}" 
+                                    "{Binding Path=TotalTax}" 
                                     Header="Total Tax" Width="120"/>
                     <GridViewColumn DisplayMemberBinding=
-                                    "{Binding Path=DateTime}" 
+                                    "{Binding Path=Total}" 
                                     Header="Total" Width="100"/>
                 </GridView>
             </ListView.View>
@@ -63,33 +63,30 @@
         <TextBox x:Name="totalBox" Grid.Column="3" Grid.Row="5" Margin="771,682,92,86"/>
         <TextBlock Grid.Column="2" Grid.Row="5" FontSize="15" Text="Contact" Margin="405,590,506,180" Grid.ColumnSpan="3" RenderTransformOrigin="-0.263,0.495" />
         <TextBlock Grid.Column="1" Grid.Row="5" FontSize="15" Text="Address" Margin="48,586,881,168" Grid.ColumnSpan="3" RenderTransformOrigin="-0.263,0.495" />
-        <TextBlock Grid.Column="3" Grid.Row="5" FontSize="15" Text="Invoice Date" Margin="666,115,200,676" Grid.ColumnSpan="3" />
-        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="15" Text="Due Date" Margin="667,166,225,620" Grid.ColumnSpan="3" />
+        <TextBlock Grid.Column="3" Grid.Row="5" FontSize="15" Text="Invoice Date" Margin="642,115,249,660" />
+        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="15" Text="Due Date" Margin="642,166,262,610" Grid.ColumnSpan="3" />
         <TextBlock x:Name="companyName" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Name" Margin="35,125,624,607" Grid.ColumnSpan="3" />
-        <TextBlock x:Name="senderAddress" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Address" Margin="436,82,404,607" Grid.ColumnSpan="3" />
-        <TextBlock x:Name="receiverAddress" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Address" Margin="48,636,708,40" Grid.ColumnSpan="3" />
-        <TextBlock x:Name="receiverContact" Grid.Column="1" Grid.Row="5" FontSize="15" Text="contact" Margin="405,636,374,40" Grid.ColumnSpan="3" />
+        <TextBlock x:Name="receiverAddress" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Address" Margin="436,82,404,607" Grid.ColumnSpan="3" />
+        <TextBlock x:Name="senderAddress" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Address" Margin="48,636,708,40" Grid.ColumnSpan="3" />
+        <TextBlock x:Name="senderContact" Grid.Column="1" Grid.Row="5" FontSize="15" Text="contact" Margin="405,636,374,40" Grid.ColumnSpan="3" />
         <DockPanel  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5">
             <Menu DockPanel.Dock="Top" Height="23">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_Open Invoice" />
-                    <MenuItem Header="_Load Invoice" />
+                    <MenuItem Header="_Open Invoice" Click="OpenInvoice_OnClick"  />
+                    <MenuItem Header="_Load Logo" IsEnabled="False" />
                     <Separator />
-                    <MenuItem Header="_Print" />
-                    <MenuItem Header="_Save As Image" />
+                    <MenuItem Header="_Print" IsEnabled="False" />
+                    <MenuItem Header="_Save As Image" IsEnabled="False" />
                     <Separator />
-                    <MenuItem Header="_Exit" />
+                    <MenuItem Header="_Exit" Click="Exit_OnClick" />
                 </MenuItem>
-                <MenuItem Header="_Help">
-                    <MenuItem Header="_Manage users">
-                        <MenuItem.Icon>
-                            <Image Source="/WpfTutorialSamples;component/Images/user.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="_Show groups" IsCheckable="True" IsChecked="True" />
+                <MenuItem Header="_Help" IsEnabled=" False">
                 </MenuItem>
             </Menu>
             <TextBox AcceptsReturn="True" />
         </DockPanel>
+        <DatePicker x:Name="InvoiceDate" Grid.Column="3" HorizontalAlignment="Left" Margin="794,114,0,0" Grid.Row="5" VerticalAlignment="Top" Width="178"/>
+        <DatePicker  x:Name="DueDate"  Grid.Column="3" HorizontalAlignment="Left" Margin="794,166,0,0" Grid.Row="5" VerticalAlignment="Top" Width="178"/>
+        <TextBlock x:Name="InvoiceNumber" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Number" Margin="821,69,46,685" Grid.ColumnSpan="3" />
     </Grid>
 </Window>

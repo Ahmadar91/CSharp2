@@ -1,0 +1,12 @@
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\bin\Debug\netcoreapp3.1\Controller.deps.json
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\bin\Debug\netcoreapp3.1\Controller.dll
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\bin\Debug\netcoreapp3.1\Controller.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\bin\Debug\netcoreapp3.1\Model.dll
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\bin\Debug\netcoreapp3.1\Model.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\obj\Debug\netcoreapp3.1\Controller.csprojAssemblyReference.cache
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\obj\Debug\netcoreapp3.1\Controller.AssemblyInfoInputs.cache
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\obj\Debug\netcoreapp3.1\Controller.AssemblyInfo.cs
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\obj\Debug\netcoreapp3.1\Controller.csproj.CoreCompileInputs.cache
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\obj\Debug\netcoreapp3.1\Controller.csproj.CopyComplete
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\obj\Debug\netcoreapp3.1\Controller.dll
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Controller\obj\Debug\netcoreapp3.1\Controller.pdb

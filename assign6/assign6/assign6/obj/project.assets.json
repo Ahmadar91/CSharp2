@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net5.0-windows7.0": {}
+    "net5.0-windows7.0": {
+      "Controller/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Controller.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Controller.dll": {}
+        }
+      },
+      "Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Controller/1.0.0": {
+      "type": "project",
+      "path": "../Controller/Controller.csproj",
+      "msbuildProject": "../Controller/Controller.csproj"
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0-windows7.0": []
+    "net5.0-windows7.0": [
+      "Controller >= 1.0.0",
+      "Model >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\ahmad\\.nuget\\packages\\": {},
@@ -14,9 +52,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ahmad\\Desktop\\CSharp2\\assign6\\assign6\\assign6\\assign6.csproj",
-      "projectName": "assign6",
-      "projectPath": "C:\\Users\\ahmad\\Desktop\\CSharp2\\assign6\\assign6\\assign6\\assign6.csproj",
+      "projectUniqueName": "C:\\Users\\ahmad\\Desktop\\CSharp2\\assign6\\assign6\\assign6\\View.csproj",
+      "projectName": "View",
+      "projectPath": "C:\\Users\\ahmad\\Desktop\\CSharp2\\assign6\\assign6\\assign6\\View.csproj",
       "packagesPath": "C:\\Users\\ahmad\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ahmad\\Desktop\\CSharp2\\assign6\\assign6\\assign6\\obj\\",
       "projectStyle": "PackageReference",
@@ -38,7 +76,14 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\ahmad\\Desktop\\CSharp2\\assign6\\assign6\\Controller\\Controller.csproj": {
+              "projectPath": "C:\\Users\\ahmad\\Desktop\\CSharp2\\assign6\\assign6\\Controller\\Controller.csproj"
+            },
+            "C:\\Users\\ahmad\\Desktop\\CSharp2\\assign6\\assign6\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\ahmad\\Desktop\\CSharp2\\assign6\\assign6\\Model\\Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

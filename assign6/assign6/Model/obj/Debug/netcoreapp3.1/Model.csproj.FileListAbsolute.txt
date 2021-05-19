@@ -1,0 +1,9 @@
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Model\bin\Debug\netcoreapp3.1\Model.deps.json
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Model\bin\Debug\netcoreapp3.1\Model.dll
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Model\bin\Debug\netcoreapp3.1\Model.pdb
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Model\obj\Debug\netcoreapp3.1\Model.csprojAssemblyReference.cache
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfoInputs.cache
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfo.cs
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Model\obj\Debug\netcoreapp3.1\Model.csproj.CoreCompileInputs.cache
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Model\obj\Debug\netcoreapp3.1\Model.dll
+C:\Users\ahmad\Desktop\CSharp2\assign6\assign6\Model\obj\Debug\netcoreapp3.1\Model.pdb
