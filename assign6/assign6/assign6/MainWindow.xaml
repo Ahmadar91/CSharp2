@@ -27,7 +27,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height=" 20"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="15" Text="Invoice Number" Margin="642,69,238,701" Grid.ColumnSpan="3" />
+        <TextBlock x:Name="InvoiceNumberLabel" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Invoice Number" Margin="642,69,238,701" Grid.ColumnSpan="3" />
 
         <ListView x:Name="listView" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" 
                   BorderThickness="4" BorderBrush="Black" Margin="35,231,0,0" 
@@ -57,18 +57,18 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBlock Grid.Column="3" Grid.Row="5" FontSize="15" Text="Discount:" Margin="692,616,227,142" Grid.ColumnSpan="3" />
-        <TextBox x:Name="discountBox" Grid.Column="3" Grid.Row="5" Margin="771,616,92,152"/>
-        <TextBlock Grid.Column="3" Grid.Row="5" FontSize="15" Text="Total:" Margin="692,682,225,86" Grid.ColumnSpan="3" />
+        <TextBlock x:Name="DiscountLabel" Grid.Column="3" Grid.Row="5" FontSize="15" Text="Discount:" Margin="692,616,227,142" Grid.ColumnSpan="3" />
+        <TextBox x:Name="discountBox" Grid.Column="3" Grid.Row="5" Margin="771,616,92,152" TextChanged="discountBox_TextChanged"/>
+        <TextBlock x:Name="TotalLabel" Grid.Column="3" Grid.Row="5" FontSize="15" FontWeight="Bold" Text="Total:" Margin="692,682,225,86" Grid.ColumnSpan="3" />
         <TextBox x:Name="totalBox" Grid.Column="3" Grid.Row="5" Margin="771,682,92,86"/>
-        <TextBlock Grid.Column="2" Grid.Row="5" FontSize="15" Text="Contact" Margin="405,590,506,180" Grid.ColumnSpan="3" RenderTransformOrigin="-0.263,0.495" />
-        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="15" Text="Address" Margin="48,586,881,168" Grid.ColumnSpan="3" RenderTransformOrigin="-0.263,0.495" />
-        <TextBlock Grid.Column="3" Grid.Row="5" FontSize="15" Text="Invoice Date" Margin="642,115,249,660" />
-        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="15" Text="Due Date" Margin="642,166,262,610" Grid.ColumnSpan="3" />
-        <TextBlock x:Name="companyName" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Name" Margin="35,125,624,607" Grid.ColumnSpan="3" />
-        <TextBlock x:Name="receiverAddress" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Address" Margin="436,82,404,607" Grid.ColumnSpan="3" />
-        <TextBlock x:Name="senderAddress" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Address" Margin="48,636,708,40" Grid.ColumnSpan="3" />
-        <TextBlock x:Name="senderContact" Grid.Column="1" Grid.Row="5" FontSize="15" Text="contact" Margin="405,636,374,40" Grid.ColumnSpan="3" />
+        <TextBlock x:Name="ContactLabel" Grid.Column="2" Grid.Row="5" FontSize="20" FontWeight="Bold" Text="Contact" Margin="405,590,506,180" Grid.ColumnSpan="3" RenderTransformOrigin="-0.263,0.495" />
+        <TextBlock x:Name="AddressLabel" Grid.Column="1" Grid.Row="5" FontSize="20" FontWeight="Bold" Text="Address" Margin="48,586,800,168" Grid.ColumnSpan="3" RenderTransformOrigin="-0.263,0.495" />
+        <TextBlock x:Name="DateLabel" Grid.Column="3" Grid.Row="5" FontSize="15" Text="Invoice Date" Margin="642,115,249,660" />
+        <TextBlock x:Name="DueDateLabel" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Due Date" Margin="642,166,262,610" Grid.ColumnSpan="3" />
+        <TextBlock x:Name="companyName" Grid.Column="1" Grid.Row="5" FontSize="30" Text="" Margin="35,125,624,607" Grid.ColumnSpan="3" FontWeight="ExtraBold" />
+        <TextBlock x:Name="receiverAddress" Grid.Column="1" Grid.Row="5" FontSize="15" Text="" Margin="436,82,404,607" Grid.ColumnSpan="3" />
+        <TextBlock x:Name="senderAddress" Grid.Column="1" Grid.Row="5" FontSize="15" Text="" Margin="48,636,708,40" Grid.ColumnSpan="3" />
+        <TextBlock x:Name="senderContact" Grid.Column="1" Grid.Row="5" FontSize="15" Text="" Margin="405,636,374,40" Grid.ColumnSpan="3" />
         <DockPanel  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5">
             <Menu DockPanel.Dock="Top" Height="23">
                 <MenuItem Header="_File">
@@ -85,8 +85,8 @@
             </Menu>
             <TextBox AcceptsReturn="True" />
         </DockPanel>
-        <DatePicker x:Name="InvoiceDate" Grid.Column="3" HorizontalAlignment="Left" Margin="794,114,0,0" Grid.Row="5" VerticalAlignment="Top" Width="178"/>
+        <DatePicker  x:Name="InvoiceDate" Grid.Column="3" HorizontalAlignment="Left" Margin="794,114,0,0" Grid.Row="5" VerticalAlignment="Top" Width="178"/>
         <DatePicker  x:Name="DueDate"  Grid.Column="3" HorizontalAlignment="Left" Margin="794,166,0,0" Grid.Row="5" VerticalAlignment="Top" Width="178"/>
-        <TextBlock x:Name="InvoiceNumber" Grid.Column="1" Grid.Row="5" FontSize="15" Text="Number" Margin="821,69,46,685" Grid.ColumnSpan="3" />
+        <TextBlock x:Name="InvoiceNumber" Foreground="Red" Grid.Column="1" Grid.Row="5" FontSize="15" Text="" Margin="821,69,46,685" Grid.ColumnSpan="3" />
     </Grid>
 </Window>

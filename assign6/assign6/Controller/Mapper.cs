@@ -4,9 +4,14 @@ using Model.Models;
 
 namespace Controller
 {
-	public class Mapper
+	public class Mapper : IMapper
 	{
 
+		/// <summary>Maps the specified content.</summary>
+		/// <param name="content">The content.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		public Invoice Map(string[] content)
 		{
 			if (content.Length - 1 >= 0 && content.Length > content.Length - 1)
@@ -34,6 +39,13 @@ namespace Controller
 			return null;
 		}
 
+		/// <summary>Maps the items.</summary>
+		/// <param name="content">The content.</param>
+		/// <param name="length">The length.</param>
+		/// <param name="index">The index.</param>
+		/// <returns>
+		///   <br />
+		/// </returns>
 		private Item[] MapItems(string[] content, int length, int index)
 		{
 			var items = new string[length];
