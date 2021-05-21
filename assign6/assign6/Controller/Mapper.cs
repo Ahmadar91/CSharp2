@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Model.Models;
 
 namespace Controller
@@ -53,11 +54,13 @@ namespace Controller
 			var results = new List<Item>();
 			for (int i = 0; i < length; i += 4)
 			{
+				decimal.TryParse(items[i + 2].Replace(',', '.'),
+					NumberStyles.Any, CultureInfo.InvariantCulture, out var value);
 				results.Add(new Item
 				{
 					Description = items[i],
 					Quantity = int.Parse(items[i + 1]),
-					UnitPrice = decimal.Parse(items[i + 2]),
+					UnitPrice = value,
 					Tax = int.Parse(items[i + 3])
 				});
 
