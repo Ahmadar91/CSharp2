@@ -9,23 +9,23 @@ updates:
     directory: "/assign1" # Location of package manifests
     schedule:
       interval: "daily"
-   - package-ecosystem: "nuget" # See documentation for possible values
+  - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/assign2" # Location of package manifests
     schedule:
       interval: "daily"
-   - package-ecosystem: "nuget" # See documentation for possible values
+  - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/assign3" # Location of package manifests
     schedule:
       interval: "daily"
-   - package-ecosystem: "nuget" # See documentation for possible values
+  - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/assign4" # Location of package manifests
     schedule:
       interval: "daily"
-   - package-ecosystem: "nuget" # See documentation for possible values
+  - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/assign5/assign5/" # Location of package manifests
     schedule:
       interval: "daily"
-   - package-ecosystem: "nuget" # See documentation for possible values
+  - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/assign6/assign6/" # Location of package manifests
     schedule:
       interval: "daily"
